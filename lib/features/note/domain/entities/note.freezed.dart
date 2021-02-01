@@ -8,9 +8,6 @@ part of 'note.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-Note _$NoteFromJson(Map<String, dynamic> json) {
-  return _Note.fromJson(json);
-}
 
 /// @nodoc
 class _$NoteTearOff {
@@ -23,11 +20,6 @@ class _$NoteTearOff {
       content: content,
     );
   }
-
-// ignore: unused_element
-  Note fromJson(Map<String, Object> json) {
-    return Note.fromJson(json);
-  }
 }
 
 /// @nodoc
@@ -39,7 +31,6 @@ mixin _$Note {
   String get title;
   String get content;
 
-  Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
   $NoteCopyWith<Note> get copyWith;
 }
@@ -100,14 +91,9 @@ class __$NoteCopyWithImpl<$Res> extends _$NoteCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
 class _$_Note implements _Note {
   _$_Note({this.title, this.content});
-
-  factory _$_Note.fromJson(Map<String, dynamic> json) =>
-      _$_$_NoteFromJson(json);
 
   @override
   final String title;
@@ -139,17 +125,10 @@ class _$_Note implements _Note {
   @override
   _$NoteCopyWith<_Note> get copyWith =>
       __$NoteCopyWithImpl<_Note>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_NoteToJson(this);
-  }
 }
 
 abstract class _Note implements Note {
   factory _Note({String title, String content}) = _$_Note;
-
-  factory _Note.fromJson(Map<String, dynamic> json) = _$_Note.fromJson;
 
   @override
   String get title;

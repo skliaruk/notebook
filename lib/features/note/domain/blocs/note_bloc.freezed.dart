@@ -19,8 +19,10 @@ class _$NoteBlocEventTearOff {
   }
 
 // ignore: unused_element
-  ReadNoteBlocEvent read() {
-    return const ReadNoteBlocEvent();
+  ReadNoteBlocEvent read(int noteId) {
+    return ReadNoteBlocEvent(
+      noteId,
+    );
   }
 
 // ignore: unused_element
@@ -43,14 +45,14 @@ mixin _$NoteBlocEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult create(),
-    @required TResult read(),
+    @required TResult read(int noteId),
     @required TResult update(),
     @required TResult delete(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult create(),
-    TResult read(),
+    TResult read(int noteId),
     TResult update(),
     TResult delete(),
     @required TResult orElse(),
@@ -129,7 +131,7 @@ class _$CreateNoteBlocEvent extends CreateNoteBlocEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult create(),
-    @required TResult read(),
+    @required TResult read(int noteId),
     @required TResult update(),
     @required TResult delete(),
   }) {
@@ -144,7 +146,7 @@ class _$CreateNoteBlocEvent extends CreateNoteBlocEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult create(),
-    TResult read(),
+    TResult read(int noteId),
     TResult update(),
     TResult delete(),
     @required TResult orElse(),
@@ -198,6 +200,7 @@ abstract class $ReadNoteBlocEventCopyWith<$Res> {
   factory $ReadNoteBlocEventCopyWith(
           ReadNoteBlocEvent value, $Res Function(ReadNoteBlocEvent) then) =
       _$ReadNoteBlocEventCopyWithImpl<$Res>;
+  $Res call({int noteId});
 }
 
 /// @nodoc
@@ -210,30 +213,53 @@ class _$ReadNoteBlocEventCopyWithImpl<$Res>
 
   @override
   ReadNoteBlocEvent get _value => super._value as ReadNoteBlocEvent;
+
+  @override
+  $Res call({
+    Object noteId = freezed,
+  }) {
+    return _then(ReadNoteBlocEvent(
+      noteId == freezed ? _value.noteId : noteId as int,
+    ));
+  }
 }
 
 /// @nodoc
 class _$ReadNoteBlocEvent extends ReadNoteBlocEvent {
-  const _$ReadNoteBlocEvent() : super._();
+  const _$ReadNoteBlocEvent(this.noteId)
+      : assert(noteId != null),
+        super._();
+
+  @override
+  final int noteId;
 
   @override
   String toString() {
-    return 'NoteBlocEvent.read()';
+    return 'NoteBlocEvent.read(noteId: $noteId)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ReadNoteBlocEvent);
+    return identical(this, other) ||
+        (other is ReadNoteBlocEvent &&
+            (identical(other.noteId, noteId) ||
+                const DeepCollectionEquality().equals(other.noteId, noteId)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(noteId);
+
+  @JsonKey(ignore: true)
+  @override
+  $ReadNoteBlocEventCopyWith<ReadNoteBlocEvent> get copyWith =>
+      _$ReadNoteBlocEventCopyWithImpl<ReadNoteBlocEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult create(),
-    @required TResult read(),
+    @required TResult read(int noteId),
     @required TResult update(),
     @required TResult delete(),
   }) {
@@ -241,21 +267,21 @@ class _$ReadNoteBlocEvent extends ReadNoteBlocEvent {
     assert(read != null);
     assert(update != null);
     assert(delete != null);
-    return read();
+    return read(noteId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult create(),
-    TResult read(),
+    TResult read(int noteId),
     TResult update(),
     TResult delete(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (read != null) {
-      return read();
+      return read(noteId);
     }
     return orElse();
   }
@@ -294,7 +320,11 @@ class _$ReadNoteBlocEvent extends ReadNoteBlocEvent {
 
 abstract class ReadNoteBlocEvent extends NoteBlocEvent {
   const ReadNoteBlocEvent._() : super._();
-  const factory ReadNoteBlocEvent() = _$ReadNoteBlocEvent;
+  const factory ReadNoteBlocEvent(int noteId) = _$ReadNoteBlocEvent;
+
+  int get noteId;
+  @JsonKey(ignore: true)
+  $ReadNoteBlocEventCopyWith<ReadNoteBlocEvent> get copyWith;
 }
 
 /// @nodoc
@@ -337,7 +367,7 @@ class _$UpdateNoteBlocEvent extends UpdateNoteBlocEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult create(),
-    @required TResult read(),
+    @required TResult read(int noteId),
     @required TResult update(),
     @required TResult delete(),
   }) {
@@ -352,7 +382,7 @@ class _$UpdateNoteBlocEvent extends UpdateNoteBlocEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult create(),
-    TResult read(),
+    TResult read(int noteId),
     TResult update(),
     TResult delete(),
     @required TResult orElse(),
@@ -441,7 +471,7 @@ class _$DeleteNoteBlocEvent extends DeleteNoteBlocEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult create(),
-    @required TResult read(),
+    @required TResult read(int noteId),
     @required TResult update(),
     @required TResult delete(),
   }) {
@@ -456,7 +486,7 @@ class _$DeleteNoteBlocEvent extends DeleteNoteBlocEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult create(),
-    TResult read(),
+    TResult read(int noteId),
     TResult update(),
     TResult delete(),
     @required TResult orElse(),
@@ -510,18 +540,24 @@ class _$NoteBlocStateTearOff {
   const _$NoteBlocStateTearOff();
 
 // ignore: unused_element
-  InitialNoteBlocState initial() {
-    return const InitialNoteBlocState();
+  InitialNoteBlocState initial(Note note) {
+    return InitialNoteBlocState(
+      note,
+    );
   }
 
 // ignore: unused_element
-  UpdatedNoteBlocState updated() {
-    return const UpdatedNoteBlocState();
+  UpdatedNoteBlocState updated(Note note) {
+    return UpdatedNoteBlocState(
+      note,
+    );
   }
 
 // ignore: unused_element
-  CreatedNoteBlocState created() {
-    return const CreatedNoteBlocState();
+  CreatedNoteBlocState created(Note note) {
+    return CreatedNoteBlocState(
+      note,
+    );
   }
 
 // ignore: unused_element
@@ -538,16 +574,16 @@ const $NoteBlocState = _$NoteBlocStateTearOff();
 mixin _$NoteBlocState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult updated(),
-    @required TResult created(),
+    @required TResult initial(Note note),
+    @required TResult updated(Note note),
+    @required TResult created(Note note),
     @required TResult deleted(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult updated(),
-    TResult created(),
+    TResult initial(Note note),
+    TResult updated(Note note),
+    TResult created(Note note),
     TResult deleted(),
     @required TResult orElse(),
   });
@@ -590,6 +626,9 @@ abstract class $InitialNoteBlocStateCopyWith<$Res> {
   factory $InitialNoteBlocStateCopyWith(InitialNoteBlocState value,
           $Res Function(InitialNoteBlocState) then) =
       _$InitialNoteBlocStateCopyWithImpl<$Res>;
+  $Res call({Note note});
+
+  $NoteCopyWith<$Res> get note;
 }
 
 /// @nodoc
@@ -602,52 +641,86 @@ class _$InitialNoteBlocStateCopyWithImpl<$Res>
 
   @override
   InitialNoteBlocState get _value => super._value as InitialNoteBlocState;
+
+  @override
+  $Res call({
+    Object note = freezed,
+  }) {
+    return _then(InitialNoteBlocState(
+      note == freezed ? _value.note : note as Note,
+    ));
+  }
+
+  @override
+  $NoteCopyWith<$Res> get note {
+    if (_value.note == null) {
+      return null;
+    }
+    return $NoteCopyWith<$Res>(_value.note, (value) {
+      return _then(_value.copyWith(note: value));
+    });
+  }
 }
 
 /// @nodoc
 class _$InitialNoteBlocState extends InitialNoteBlocState {
-  const _$InitialNoteBlocState() : super._();
+  const _$InitialNoteBlocState(this.note)
+      : assert(note != null),
+        super._();
+
+  @override
+  final Note note;
 
   @override
   String toString() {
-    return 'NoteBlocState.initial()';
+    return 'NoteBlocState.initial(note: $note)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InitialNoteBlocState);
+    return identical(this, other) ||
+        (other is InitialNoteBlocState &&
+            (identical(other.note, note) ||
+                const DeepCollectionEquality().equals(other.note, note)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(note);
+
+  @JsonKey(ignore: true)
+  @override
+  $InitialNoteBlocStateCopyWith<InitialNoteBlocState> get copyWith =>
+      _$InitialNoteBlocStateCopyWithImpl<InitialNoteBlocState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult updated(),
-    @required TResult created(),
+    @required TResult initial(Note note),
+    @required TResult updated(Note note),
+    @required TResult created(Note note),
     @required TResult deleted(),
   }) {
     assert(initial != null);
     assert(updated != null);
     assert(created != null);
     assert(deleted != null);
-    return initial();
+    return initial(note);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult updated(),
-    TResult created(),
+    TResult initial(Note note),
+    TResult updated(Note note),
+    TResult created(Note note),
     TResult deleted(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initial != null) {
-      return initial();
+      return initial(note);
     }
     return orElse();
   }
@@ -686,7 +759,11 @@ class _$InitialNoteBlocState extends InitialNoteBlocState {
 
 abstract class InitialNoteBlocState extends NoteBlocState {
   const InitialNoteBlocState._() : super._();
-  const factory InitialNoteBlocState() = _$InitialNoteBlocState;
+  const factory InitialNoteBlocState(Note note) = _$InitialNoteBlocState;
+
+  Note get note;
+  @JsonKey(ignore: true)
+  $InitialNoteBlocStateCopyWith<InitialNoteBlocState> get copyWith;
 }
 
 /// @nodoc
@@ -694,6 +771,9 @@ abstract class $UpdatedNoteBlocStateCopyWith<$Res> {
   factory $UpdatedNoteBlocStateCopyWith(UpdatedNoteBlocState value,
           $Res Function(UpdatedNoteBlocState) then) =
       _$UpdatedNoteBlocStateCopyWithImpl<$Res>;
+  $Res call({Note note});
+
+  $NoteCopyWith<$Res> get note;
 }
 
 /// @nodoc
@@ -706,52 +786,86 @@ class _$UpdatedNoteBlocStateCopyWithImpl<$Res>
 
   @override
   UpdatedNoteBlocState get _value => super._value as UpdatedNoteBlocState;
+
+  @override
+  $Res call({
+    Object note = freezed,
+  }) {
+    return _then(UpdatedNoteBlocState(
+      note == freezed ? _value.note : note as Note,
+    ));
+  }
+
+  @override
+  $NoteCopyWith<$Res> get note {
+    if (_value.note == null) {
+      return null;
+    }
+    return $NoteCopyWith<$Res>(_value.note, (value) {
+      return _then(_value.copyWith(note: value));
+    });
+  }
 }
 
 /// @nodoc
 class _$UpdatedNoteBlocState extends UpdatedNoteBlocState {
-  const _$UpdatedNoteBlocState() : super._();
+  const _$UpdatedNoteBlocState(this.note)
+      : assert(note != null),
+        super._();
+
+  @override
+  final Note note;
 
   @override
   String toString() {
-    return 'NoteBlocState.updated()';
+    return 'NoteBlocState.updated(note: $note)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UpdatedNoteBlocState);
+    return identical(this, other) ||
+        (other is UpdatedNoteBlocState &&
+            (identical(other.note, note) ||
+                const DeepCollectionEquality().equals(other.note, note)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(note);
+
+  @JsonKey(ignore: true)
+  @override
+  $UpdatedNoteBlocStateCopyWith<UpdatedNoteBlocState> get copyWith =>
+      _$UpdatedNoteBlocStateCopyWithImpl<UpdatedNoteBlocState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult updated(),
-    @required TResult created(),
+    @required TResult initial(Note note),
+    @required TResult updated(Note note),
+    @required TResult created(Note note),
     @required TResult deleted(),
   }) {
     assert(initial != null);
     assert(updated != null);
     assert(created != null);
     assert(deleted != null);
-    return updated();
+    return updated(note);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult updated(),
-    TResult created(),
+    TResult initial(Note note),
+    TResult updated(Note note),
+    TResult created(Note note),
     TResult deleted(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (updated != null) {
-      return updated();
+      return updated(note);
     }
     return orElse();
   }
@@ -790,7 +904,11 @@ class _$UpdatedNoteBlocState extends UpdatedNoteBlocState {
 
 abstract class UpdatedNoteBlocState extends NoteBlocState {
   const UpdatedNoteBlocState._() : super._();
-  const factory UpdatedNoteBlocState() = _$UpdatedNoteBlocState;
+  const factory UpdatedNoteBlocState(Note note) = _$UpdatedNoteBlocState;
+
+  Note get note;
+  @JsonKey(ignore: true)
+  $UpdatedNoteBlocStateCopyWith<UpdatedNoteBlocState> get copyWith;
 }
 
 /// @nodoc
@@ -798,6 +916,9 @@ abstract class $CreatedNoteBlocStateCopyWith<$Res> {
   factory $CreatedNoteBlocStateCopyWith(CreatedNoteBlocState value,
           $Res Function(CreatedNoteBlocState) then) =
       _$CreatedNoteBlocStateCopyWithImpl<$Res>;
+  $Res call({Note note});
+
+  $NoteCopyWith<$Res> get note;
 }
 
 /// @nodoc
@@ -810,52 +931,86 @@ class _$CreatedNoteBlocStateCopyWithImpl<$Res>
 
   @override
   CreatedNoteBlocState get _value => super._value as CreatedNoteBlocState;
+
+  @override
+  $Res call({
+    Object note = freezed,
+  }) {
+    return _then(CreatedNoteBlocState(
+      note == freezed ? _value.note : note as Note,
+    ));
+  }
+
+  @override
+  $NoteCopyWith<$Res> get note {
+    if (_value.note == null) {
+      return null;
+    }
+    return $NoteCopyWith<$Res>(_value.note, (value) {
+      return _then(_value.copyWith(note: value));
+    });
+  }
 }
 
 /// @nodoc
 class _$CreatedNoteBlocState extends CreatedNoteBlocState {
-  const _$CreatedNoteBlocState() : super._();
+  const _$CreatedNoteBlocState(this.note)
+      : assert(note != null),
+        super._();
+
+  @override
+  final Note note;
 
   @override
   String toString() {
-    return 'NoteBlocState.created()';
+    return 'NoteBlocState.created(note: $note)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is CreatedNoteBlocState);
+    return identical(this, other) ||
+        (other is CreatedNoteBlocState &&
+            (identical(other.note, note) ||
+                const DeepCollectionEquality().equals(other.note, note)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(note);
+
+  @JsonKey(ignore: true)
+  @override
+  $CreatedNoteBlocStateCopyWith<CreatedNoteBlocState> get copyWith =>
+      _$CreatedNoteBlocStateCopyWithImpl<CreatedNoteBlocState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult updated(),
-    @required TResult created(),
+    @required TResult initial(Note note),
+    @required TResult updated(Note note),
+    @required TResult created(Note note),
     @required TResult deleted(),
   }) {
     assert(initial != null);
     assert(updated != null);
     assert(created != null);
     assert(deleted != null);
-    return created();
+    return created(note);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult updated(),
-    TResult created(),
+    TResult initial(Note note),
+    TResult updated(Note note),
+    TResult created(Note note),
     TResult deleted(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (created != null) {
-      return created();
+      return created(note);
     }
     return orElse();
   }
@@ -894,7 +1049,11 @@ class _$CreatedNoteBlocState extends CreatedNoteBlocState {
 
 abstract class CreatedNoteBlocState extends NoteBlocState {
   const CreatedNoteBlocState._() : super._();
-  const factory CreatedNoteBlocState() = _$CreatedNoteBlocState;
+  const factory CreatedNoteBlocState(Note note) = _$CreatedNoteBlocState;
+
+  Note get note;
+  @JsonKey(ignore: true)
+  $CreatedNoteBlocStateCopyWith<CreatedNoteBlocState> get copyWith;
 }
 
 /// @nodoc
@@ -936,9 +1095,9 @@ class _$DeletedNoteBlocState extends DeletedNoteBlocState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult updated(),
-    @required TResult created(),
+    @required TResult initial(Note note),
+    @required TResult updated(Note note),
+    @required TResult created(Note note),
     @required TResult deleted(),
   }) {
     assert(initial != null);
@@ -951,9 +1110,9 @@ class _$DeletedNoteBlocState extends DeletedNoteBlocState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult updated(),
-    TResult created(),
+    TResult initial(Note note),
+    TResult updated(Note note),
+    TResult created(Note note),
     TResult deleted(),
     @required TResult orElse(),
   }) {

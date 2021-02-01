@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:notebook_stable/domain/repositories/note_repo.dart';
+import 'package:notebook_stable/features/note/domain/entities/note.dart';
 
 part 'note_bloc.freezed.dart';
 
@@ -9,7 +11,7 @@ abstract class NoteBlocEvent with _$NoteBlocEvent {
 
   const factory NoteBlocEvent.create() = CreateNoteBlocEvent;
 
-  const factory NoteBlocEvent.read() = ReadNoteBlocEvent;
+  const factory NoteBlocEvent.read(int noteId) = ReadNoteBlocEvent;
 
   const factory NoteBlocEvent.update() = UpdateNoteBlocEvent;
 
@@ -20,17 +22,18 @@ abstract class NoteBlocEvent with _$NoteBlocEvent {
 abstract class NoteBlocState with _$NoteBlocState {
   const NoteBlocState._();
 
-  const factory NoteBlocState.initial() = InitialNoteBlocState;
+  const factory NoteBlocState.initial(Note note) = InitialNoteBlocState;
 
-  const factory NoteBlocState.updated() = UpdatedNoteBlocState;
+  const factory NoteBlocState.updated(Note note) = UpdatedNoteBlocState;
 
-  const factory NoteBlocState.created() = CreatedNoteBlocState;
+  const factory NoteBlocState.created(Note note) = CreatedNoteBlocState;
 
   const factory NoteBlocState.deleted() = DeletedNoteBlocState;
 }
 
 class NoteBlocBLoC extends Bloc<NoteBlocEvent, NoteBlocState> {
-  NoteBlocBLoC() : super(const InitialNoteBlocState());
+  final NoteRepo noteRepo;
+  NoteBlocBLoC(this.noteRepo) : super(InitialNoteBlocState(Note()));
 
   @override
   Stream<NoteBlocState> mapEventToState(NoteBlocEvent event) =>
@@ -45,7 +48,7 @@ class NoteBlocBLoC extends Bloc<NoteBlocEvent, NoteBlocState> {
     // ...
   }
 
-  Stream<NoteBlocState> _read() async* {
+  Stream<NoteBlocState> _read(int noteId) async* {
     // ...
   }
 
