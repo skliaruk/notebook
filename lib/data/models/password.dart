@@ -11,3 +11,4 @@ class Password extends FormzInput<String, PasswordValidationError> {
     return value?.isNotEmpty == true ? null : PasswordValidationError.empty;
   }
 }
+
