@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:notebook_stable/domain/repositories/note_repo.dart';
 import 'package:notebook_stable/features/note/domain/entities/note.dart';
+import 'package:notebook_stable/features/note/domain/repositories/note_repo.dart';
 import 'package:notebook_stable/features/note/domain/usecases/get_note.dart';
 
 class MockNoteRepository extends Mock implements NoteRepo {}
@@ -22,7 +22,7 @@ void main() {
   test('should get note from the repository', () async {
     when(mockNoteRepository.getNote(any)).thenAnswer((_) async => Right(tNote));
 
-    final result = await usecase.execute(noteId: tNoteId);
+    final result = await usecase(tNoteId);
 
     expect(result, Right(tNote));
     verify(mockNoteRepository.getNote(tNoteId));

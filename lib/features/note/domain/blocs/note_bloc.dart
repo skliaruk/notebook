@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:notebook_stable/domain/repositories/note_repo.dart';
 import 'package:notebook_stable/features/note/domain/entities/note.dart';
+import 'package:notebook_stable/features/note/domain/repositories/note_repo.dart';
 
 part 'note_bloc.freezed.dart';
 
