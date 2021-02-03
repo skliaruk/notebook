@@ -1,7 +1,8 @@
 import 'package:dio/src/response.dart';
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
-import '../../../../core/platform/network_info.dart';
+import 'package:notebook_stable/core/error/exceptions.dart';
+import '../../../../core/network/network_info.dart';
 import '../datasources/note_local_datasource.dart';
 import '../datasources/note_remote_datasource.dart';
 
@@ -10,8 +11,8 @@ import '../../../../core/error/failures.dart';
 import '../../domain/repositories/note_repo.dart';
 
 class NoteRepoImpl implements NoteRepo {
-  final NoteRemoteDatasource remoteDataSource;
-  final NoteLocalDatasource localDataSource;
+  final NoteRemoteDataSource remoteDataSource;
+  final NoteLocalDataSource localDataSource;
   final NetworkInfo networkInfo;
 
   NoteRepoImpl(
@@ -32,9 +33,23 @@ class NoteRepoImpl implements NoteRepo {
   }
 
   @override
-  Future<Either<Failure, Note>> getNote(int noteId) {
-    // TODO: implement getNote
-    throw UnimplementedError();
+  Future<Either<Failure, Note>> getNote(int noteId) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteNote = await remoteDataSource.getNote(noteId);
+        localDataSource.cacheNote(remoteNote);
+        return Right(remoteNote);
+      } on ServerException {
+        return Left(ServerFailure());
+      }
+    } else {
+      try {
+        final localNote = await localDataSource.getLastNote();
+        return Right(localNote);
+      } on CacheException {
+        return Left(CacheFailure());
+      }
+    }
   }
 
   @override

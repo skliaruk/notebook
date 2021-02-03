@@ -1,7 +1,12 @@
-import 'package:dio/dio.dart';
-import 'package:notebook_stable/features/note/data/models/note_model.dart';
+import 'dart:convert';
 
-abstract class NoteRemoteDatasource {
+import 'package:dio/dio.dart';
+import 'package:notebook_stable/core/error/exceptions.dart';
+import '../models/note_model.dart';
+import 'package:dio/dio.dart' as dio;
+import 'package:meta/meta.dart';
+
+abstract class NoteRemoteDataSource {
   Future<NoteModel> createNote({String title, String content});
 
   Future<Response> deleteNote(int noteId);
@@ -9,4 +14,37 @@ abstract class NoteRemoteDatasource {
   Future<NoteModel> updateNote(String title, String content);
 
   Future<NoteModel> getNote(int noteId);
+}
+
+class NoteRemoteDataSourceImpl implements NoteRemoteDataSource {
+  final dio.Dio client;
+
+  NoteRemoteDataSourceImpl({@required this.client});
+  @override
+  Future<NoteModel> createNote({String title, String content}) {
+    // TODO: implement createNote
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Response> deleteNote(int noteId) {
+    // TODO: implement deleteNote
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<NoteModel> getNote(int noteId) async {
+    final response = await client.get('');
+    if (response.statusCode == 200) {
+      return NoteModel.fromJson(json.decode(response.data));
+    } else {
+      throw ServerException('Error');
+    }
+  }
+
+  @override
+  Future<NoteModel> updateNote(String title, String content) {
+    // TODO: implement updateNote
+    throw UnimplementedError();
+  }
 }
