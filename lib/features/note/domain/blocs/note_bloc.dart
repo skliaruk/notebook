@@ -1,9 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:notebook_stable/features/note/domain/entities/note.dart';
-import 'package:notebook_stable/features/note/domain/usecases/get_note.dart';
+import '../../../../core/error/failures.dart';
+import '../entities/note.dart';
+import '../usecases/get_note.dart';
 
 part 'note_bloc.freezed.dart';
+
+const String SERVER_FAILURE_MESSAGE = 'Server Failure';
+const String CACHE_FAILURE_MESSAGE = 'Cache Failure';
 
 @freezed
 abstract class NoteBlocEvent with _$NoteBlocEvent {
@@ -60,8 +64,10 @@ class NoteBlocBLoC extends Bloc<NoteBlocEvent, NoteBlocState> {
   Stream<NoteBlocState> _read(int noteId) async* {
     yield NoteBlocState.loading();
     final failureOrNote = await getNote(noteId);
-    
-    yield failureOrNote.fold((failure) => throw UnimplementedError(),
+
+    yield failureOrNote.fold(
+        (failure) =>
+            NoteBlocState.error(message: _mapFailureToMessage(failure)),
         (note) => NoteBlocState.loaded(note: note));
   }
 
@@ -71,5 +77,16 @@ class NoteBlocBLoC extends Bloc<NoteBlocEvent, NoteBlocState> {
 
   Stream<NoteBlocState> _delete() async* {
     // ...
+  }
+
+  String _mapFailureToMessage(Failure failure) {
+    switch (failure.runtimeType) {
+      case ServerFailure:
+        return SERVER_FAILURE_MESSAGE;
+      case CacheFailure:
+        return CACHE_FAILURE_MESSAGE;
+      default:
+        return 'Unexpected error';
+    }
   }
 }

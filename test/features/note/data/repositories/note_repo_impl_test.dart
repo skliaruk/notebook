@@ -55,7 +55,7 @@ void main() {
 
   group('getNote', () {
     final tNoteId = 1;
-    final tNoteModel = NoteModel(title: 'Title', content: 'Content');
+    final tNoteModel = NoteModel(title: 'Title', body: 'Content');
     final Note tNote = tNoteModel;
     test('should check if device is online', () async {
       when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
@@ -74,7 +74,7 @@ void main() {
         final result = await repoImpl.getNote(tNoteId);
 
         verify(mockRemoteDatasource.getNote(tNoteId));
-        expect(result, equals(Right(tNote)));
+        expect(result, equals(Right<dynamic, Note>(tNote)));
       });
 
       test(
@@ -99,7 +99,7 @@ void main() {
 
         verify(mockRemoteDatasource.getNote(tNoteId));
         verifyZeroInteractions(mockLocalDatasource);
-        expect(result, equals(Left(ServerFailure())));
+        expect(result, equals(Left<Failure, dynamic>(ServerFailure())));
       });
     });
 
@@ -114,7 +114,7 @@ void main() {
 
         verifyZeroInteractions(mockRemoteDatasource);
         verify(mockLocalDatasource.getLastNote());
-        expect(result, equals(Right(tNote)));
+        expect(result, equals(Right<dynamic,Note>(tNote)));
       });
 
       test(
@@ -127,7 +127,7 @@ void main() {
 
         verifyZeroInteractions(mockRemoteDatasource);
         verify(mockLocalDatasource.getLastNote());
-        expect(result, equals(Left(CacheFailure())));
+        expect(result, equals(Left<Failure,dynamic>(CacheFailure())));
       });
     });
   });

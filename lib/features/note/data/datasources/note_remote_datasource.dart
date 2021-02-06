@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:notebook_stable/core/error/exceptions.dart';
+import '../../../../core/error/exceptions.dart';
 import '../models/note_model.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:meta/meta.dart';
@@ -34,9 +34,12 @@ class NoteRemoteDataSourceImpl implements NoteRemoteDataSource {
 
   @override
   Future<NoteModel> getNote(int noteId) async {
-    final response = await client.get('');
+    final response = await client.get<Map<String, dynamic>>(
+      'http://jsonplaceholder.typicode.com/posts/$noteId',
+    );
+
     if (response.statusCode == 200) {
-      return NoteModel.fromJson(json.decode(response.data));
+      return NoteModel.fromJson(response.data);
     } else {
       throw ServerException('Error');
     }

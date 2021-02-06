@@ -23,8 +23,8 @@ void main() {
   });
 
   group('getLastNote', () {
-    final tNoteModel =
-        NoteModel.fromJson(json.decode(fixture('note_cached.json')));
+    final tNoteModel = NoteModel.fromJson(
+        json.decode(fixture('note_cached.json')) as Map<String, dynamic>);
     test(
         'should return NoteModel from SharedPreferences when there is one in the cache',
         () async {
@@ -50,7 +50,7 @@ void main() {
 
   group('cacheNote', () {
     final NoteModel tNoteModel =
-        NoteModel(title: 'Title', content: 'Content text');
+        NoteModel(title: 'Title', body: 'Content text');
     test('should call SharedPreferences to cache the data', () async {
       dataSource.cacheNote(tNoteModel);
       final expectedJsonString = json.encode(tNoteModel.toJson());

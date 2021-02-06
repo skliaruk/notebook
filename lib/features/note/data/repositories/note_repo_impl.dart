@@ -1,7 +1,7 @@
 import 'package:dio/src/response.dart';
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
-import 'package:notebook_stable/core/error/exceptions.dart';
+import '../../../../core/error/exceptions.dart';
 import '../../../../core/network/network_info.dart';
 import '../datasources/note_local_datasource.dart';
 import '../datasources/note_remote_datasource.dart';

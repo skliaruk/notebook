@@ -1,9 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
-import 'package:notebook_stable/core/error/failures.dart';
-import 'package:notebook_stable/core/usecases/usecase.dart';
-import 'package:notebook_stable/features/note/domain/entities/note.dart';
-import 'package:notebook_stable/features/note/domain/repositories/note_repo.dart';
+
+import '../../../../core/error/failures.dart';
+import '../../../../core/usecases/usecase.dart';
+import '../entities/note.dart';
+import '../repositories/note_repo.dart';
 
 class GetNote implements UseCase<Note, int> {
   final NoteRepo noteRepo;
@@ -11,7 +12,7 @@ class GetNote implements UseCase<Note, int> {
   GetNote(this.noteRepo);
 
   @override
-  Future<Either<Failure, Note>> call(@required int noteId) async {
+  Future<Either<Failure, Note>> call(@required  noteId) async {
     return await noteRepo.getNote(noteId);
   }
 }

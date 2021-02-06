@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:notebook_stable/core/error/failures.dart';
-import 'package:notebook_stable/features/note/domain/entities/note.dart';
+
+import '../../../../core/error/failures.dart';
+import '../entities/note.dart';
 
 abstract class NoteRepo {
   Future<Either<Failure, Note>> createNote({String title, String content});

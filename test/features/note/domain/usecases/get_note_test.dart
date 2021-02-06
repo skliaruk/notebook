@@ -17,14 +17,14 @@ void main() {
   });
 
   final tNoteId = 1;
-  final tNote = Note(title: 'Test', content: 'Test text');
+  final tNote = Note(title: 'Test', body: 'Test text');
 
   test('should get note from the repository', () async {
     when(mockNoteRepository.getNote(any)).thenAnswer((_) async => Right(tNote));
 
     final result = await usecase(tNoteId);
 
-    expect(result, Right(tNote));
+    expect(result, Right<dynamic, Note>(tNote));
     verify(mockNoteRepository.getNote(tNoteId));
     verifyNoMoreInteractions(mockNoteRepository);
   });

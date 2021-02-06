@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:notebook_stable/core/error/exceptions.dart';
+import '../../../../core/error/exceptions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:meta/meta.dart';
 
@@ -22,7 +22,8 @@ class NoteLocalDataSourceImpl implements NoteLocalDataSource {
   Future<NoteModel> getLastNote() {
     final jsonString = sharedPreferences.getString(CACHED_NOTE);
     if (jsonString != null) {
-      return Future.value(NoteModel.fromJson(json.decode(jsonString)));
+      return Future.value(
+          NoteModel.fromJson(json.decode(jsonString) as Map<String, dynamic>));
     } else {
       throw CacheException('No data');
     }
