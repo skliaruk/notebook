@@ -1,4 +1,4 @@
-package com.example.notebook_stable
+package com.skliaruk.notebook
 
 import io.flutter.embedding.android.FlutterActivity
 
