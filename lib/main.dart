@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,7 @@ import 'features/note/presentation/pages/show_note_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await runZonedGuarded(() async {
     final SharedPreferences sharedPreferences =
         await SharedPreferences.getInstance();
