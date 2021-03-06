@@ -14,13 +14,13 @@ abstract class NoteLocalDataSource {
 const CACHED_NOTE = 'CACHED_NOTE';
 
 class NoteLocalDataSourceImpl implements NoteLocalDataSource {
-  final SharedPreferences sharedPreferences;
+  final SharedPreferences? sharedPreferences;
 
-  NoteLocalDataSourceImpl({@required this.sharedPreferences});
+  NoteLocalDataSourceImpl({required this.sharedPreferences});
 
   @override
   Future<NoteModel> getLastNote() {
-    final jsonString = sharedPreferences.getString(CACHED_NOTE);
+    final jsonString = sharedPreferences!.getString(CACHED_NOTE);
     if (jsonString != null) {
       return Future.value(
           NoteModel.fromJson(json.decode(jsonString) as Map<String, dynamic>));
@@ -31,7 +31,7 @@ class NoteLocalDataSourceImpl implements NoteLocalDataSource {
 
   @override
   Future<void> cacheNote(NoteModel noteModel) {
-    return sharedPreferences.setString(
+    return sharedPreferences!.setString(
       CACHED_NOTE,
       json.encode(noteModel.toJson()),
     );

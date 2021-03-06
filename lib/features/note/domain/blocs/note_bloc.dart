@@ -28,23 +28,23 @@ abstract class NoteBlocState with _$NoteBlocState {
 
   const factory NoteBlocState.initial() = InitialNoteBlocState;
 
-  const factory NoteBlocState.loaded({Note note}) = LoadedNoteBlocState;
+  const factory NoteBlocState.loaded({Note? note}) = LoadedNoteBlocState;
 
-  const factory NoteBlocState.updated({Note note}) = UpdatedNoteBlocState;
+  const factory NoteBlocState.updated({Note? note}) = UpdatedNoteBlocState;
 
-  const factory NoteBlocState.created({Note note}) = CreatedNoteBlocState;
+  const factory NoteBlocState.created({Note? note}) = CreatedNoteBlocState;
 
   const factory NoteBlocState.deleted() = DeletedNoteBlocState;
 
   const factory NoteBlocState.loading() = LoadingNoteBlocState;
 
-  const factory NoteBlocState.error({String message}) = ErrorNoteBlocState;
+  const factory NoteBlocState.error({String? message}) = ErrorNoteBlocState;
 }
 
 class NoteBlocBLoC extends Bloc<NoteBlocEvent, NoteBlocState> {
   final GetNote getNote;
 
-  NoteBlocBLoC({@required this.getNote})
+  NoteBlocBLoC({required this.getNote})
       : assert(getNote != null),
         super(InitialNoteBlocState());
 

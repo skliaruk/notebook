@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'note_bloc.dart';
 
@@ -9,69 +9,71 @@ part of 'note_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$NoteBlocEventTearOff {
   const _$NoteBlocEventTearOff();
 
-// ignore: unused_element
   CreateNoteBlocEvent create() {
     return const CreateNoteBlocEvent();
   }
 
-// ignore: unused_element
   ReadNoteBlocEvent read(int noteId) {
     return ReadNoteBlocEvent(
       noteId,
     );
   }
 
-// ignore: unused_element
   UpdateNoteBlocEvent update() {
     return const UpdateNoteBlocEvent();
   }
 
-// ignore: unused_element
   DeleteNoteBlocEvent delete() {
     return const DeleteNoteBlocEvent();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NoteBlocEvent = _$NoteBlocEventTearOff();
 
 /// @nodoc
 mixin _$NoteBlocEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult create(),
-    @required TResult read(int noteId),
-    @required TResult update(),
-    @required TResult delete(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() create,
+    required TResult Function(int noteId) read,
+    required TResult Function() update,
+    required TResult Function() delete,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult create(),
-    TResult read(int noteId),
-    TResult update(),
-    TResult delete(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? create,
+    TResult Function(int noteId)? read,
+    TResult Function()? update,
+    TResult Function()? delete,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult create(CreateNoteBlocEvent value),
-    @required TResult read(ReadNoteBlocEvent value),
-    @required TResult update(UpdateNoteBlocEvent value),
-    @required TResult delete(DeleteNoteBlocEvent value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(CreateNoteBlocEvent value) create,
+    required TResult Function(ReadNoteBlocEvent value) read,
+    required TResult Function(UpdateNoteBlocEvent value) update,
+    required TResult Function(DeleteNoteBlocEvent value) delete,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult create(CreateNoteBlocEvent value),
-    TResult read(ReadNoteBlocEvent value),
-    TResult update(UpdateNoteBlocEvent value),
-    TResult delete(DeleteNoteBlocEvent value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CreateNoteBlocEvent value)? create,
+    TResult Function(ReadNoteBlocEvent value)? read,
+    TResult Function(UpdateNoteBlocEvent value)? update,
+    TResult Function(DeleteNoteBlocEvent value)? delete,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -129,29 +131,24 @@ class _$CreateNoteBlocEvent extends CreateNoteBlocEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult create(),
-    @required TResult read(int noteId),
-    @required TResult update(),
-    @required TResult delete(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() create,
+    required TResult Function(int noteId) read,
+    required TResult Function() update,
+    required TResult Function() delete,
   }) {
-    assert(create != null);
-    assert(read != null);
-    assert(update != null);
-    assert(delete != null);
     return create();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult create(),
-    TResult read(int noteId),
-    TResult update(),
-    TResult delete(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? create,
+    TResult Function(int noteId)? read,
+    TResult Function()? update,
+    TResult Function()? delete,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (create != null) {
       return create();
     }
@@ -160,29 +157,24 @@ class _$CreateNoteBlocEvent extends CreateNoteBlocEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult create(CreateNoteBlocEvent value),
-    @required TResult read(ReadNoteBlocEvent value),
-    @required TResult update(UpdateNoteBlocEvent value),
-    @required TResult delete(DeleteNoteBlocEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(CreateNoteBlocEvent value) create,
+    required TResult Function(ReadNoteBlocEvent value) read,
+    required TResult Function(UpdateNoteBlocEvent value) update,
+    required TResult Function(DeleteNoteBlocEvent value) delete,
   }) {
-    assert(create != null);
-    assert(read != null);
-    assert(update != null);
-    assert(delete != null);
     return create(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult create(CreateNoteBlocEvent value),
-    TResult read(ReadNoteBlocEvent value),
-    TResult update(UpdateNoteBlocEvent value),
-    TResult delete(DeleteNoteBlocEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CreateNoteBlocEvent value)? create,
+    TResult Function(ReadNoteBlocEvent value)? read,
+    TResult Function(UpdateNoteBlocEvent value)? update,
+    TResult Function(DeleteNoteBlocEvent value)? delete,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (create != null) {
       return create(this);
     }
@@ -216,7 +208,7 @@ class _$ReadNoteBlocEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object noteId = freezed,
+    Object? noteId = freezed,
   }) {
     return _then(ReadNoteBlocEvent(
       noteId == freezed ? _value.noteId : noteId as int,
@@ -226,9 +218,7 @@ class _$ReadNoteBlocEventCopyWithImpl<$Res>
 
 /// @nodoc
 class _$ReadNoteBlocEvent extends ReadNoteBlocEvent {
-  const _$ReadNoteBlocEvent(this.noteId)
-      : assert(noteId != null),
-        super._();
+  const _$ReadNoteBlocEvent(this.noteId) : super._();
 
   @override
   final int noteId;
@@ -257,29 +247,24 @@ class _$ReadNoteBlocEvent extends ReadNoteBlocEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult create(),
-    @required TResult read(int noteId),
-    @required TResult update(),
-    @required TResult delete(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() create,
+    required TResult Function(int noteId) read,
+    required TResult Function() update,
+    required TResult Function() delete,
   }) {
-    assert(create != null);
-    assert(read != null);
-    assert(update != null);
-    assert(delete != null);
     return read(noteId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult create(),
-    TResult read(int noteId),
-    TResult update(),
-    TResult delete(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? create,
+    TResult Function(int noteId)? read,
+    TResult Function()? update,
+    TResult Function()? delete,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (read != null) {
       return read(noteId);
     }
@@ -288,29 +273,24 @@ class _$ReadNoteBlocEvent extends ReadNoteBlocEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult create(CreateNoteBlocEvent value),
-    @required TResult read(ReadNoteBlocEvent value),
-    @required TResult update(UpdateNoteBlocEvent value),
-    @required TResult delete(DeleteNoteBlocEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(CreateNoteBlocEvent value) create,
+    required TResult Function(ReadNoteBlocEvent value) read,
+    required TResult Function(UpdateNoteBlocEvent value) update,
+    required TResult Function(DeleteNoteBlocEvent value) delete,
   }) {
-    assert(create != null);
-    assert(read != null);
-    assert(update != null);
-    assert(delete != null);
     return read(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult create(CreateNoteBlocEvent value),
-    TResult read(ReadNoteBlocEvent value),
-    TResult update(UpdateNoteBlocEvent value),
-    TResult delete(DeleteNoteBlocEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CreateNoteBlocEvent value)? create,
+    TResult Function(ReadNoteBlocEvent value)? read,
+    TResult Function(UpdateNoteBlocEvent value)? update,
+    TResult Function(DeleteNoteBlocEvent value)? delete,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (read != null) {
       return read(this);
     }
@@ -322,9 +302,10 @@ abstract class ReadNoteBlocEvent extends NoteBlocEvent {
   const ReadNoteBlocEvent._() : super._();
   const factory ReadNoteBlocEvent(int noteId) = _$ReadNoteBlocEvent;
 
-  int get noteId;
+  int get noteId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ReadNoteBlocEventCopyWith<ReadNoteBlocEvent> get copyWith;
+  $ReadNoteBlocEventCopyWith<ReadNoteBlocEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -365,29 +346,24 @@ class _$UpdateNoteBlocEvent extends UpdateNoteBlocEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult create(),
-    @required TResult read(int noteId),
-    @required TResult update(),
-    @required TResult delete(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() create,
+    required TResult Function(int noteId) read,
+    required TResult Function() update,
+    required TResult Function() delete,
   }) {
-    assert(create != null);
-    assert(read != null);
-    assert(update != null);
-    assert(delete != null);
     return update();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult create(),
-    TResult read(int noteId),
-    TResult update(),
-    TResult delete(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? create,
+    TResult Function(int noteId)? read,
+    TResult Function()? update,
+    TResult Function()? delete,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (update != null) {
       return update();
     }
@@ -396,29 +372,24 @@ class _$UpdateNoteBlocEvent extends UpdateNoteBlocEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult create(CreateNoteBlocEvent value),
-    @required TResult read(ReadNoteBlocEvent value),
-    @required TResult update(UpdateNoteBlocEvent value),
-    @required TResult delete(DeleteNoteBlocEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(CreateNoteBlocEvent value) create,
+    required TResult Function(ReadNoteBlocEvent value) read,
+    required TResult Function(UpdateNoteBlocEvent value) update,
+    required TResult Function(DeleteNoteBlocEvent value) delete,
   }) {
-    assert(create != null);
-    assert(read != null);
-    assert(update != null);
-    assert(delete != null);
     return update(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult create(CreateNoteBlocEvent value),
-    TResult read(ReadNoteBlocEvent value),
-    TResult update(UpdateNoteBlocEvent value),
-    TResult delete(DeleteNoteBlocEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CreateNoteBlocEvent value)? create,
+    TResult Function(ReadNoteBlocEvent value)? read,
+    TResult Function(UpdateNoteBlocEvent value)? update,
+    TResult Function(DeleteNoteBlocEvent value)? delete,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (update != null) {
       return update(this);
     }
@@ -469,29 +440,24 @@ class _$DeleteNoteBlocEvent extends DeleteNoteBlocEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult create(),
-    @required TResult read(int noteId),
-    @required TResult update(),
-    @required TResult delete(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() create,
+    required TResult Function(int noteId) read,
+    required TResult Function() update,
+    required TResult Function() delete,
   }) {
-    assert(create != null);
-    assert(read != null);
-    assert(update != null);
-    assert(delete != null);
     return delete();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult create(),
-    TResult read(int noteId),
-    TResult update(),
-    TResult delete(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? create,
+    TResult Function(int noteId)? read,
+    TResult Function()? update,
+    TResult Function()? delete,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (delete != null) {
       return delete();
     }
@@ -500,29 +466,24 @@ class _$DeleteNoteBlocEvent extends DeleteNoteBlocEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult create(CreateNoteBlocEvent value),
-    @required TResult read(ReadNoteBlocEvent value),
-    @required TResult update(UpdateNoteBlocEvent value),
-    @required TResult delete(DeleteNoteBlocEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(CreateNoteBlocEvent value) create,
+    required TResult Function(ReadNoteBlocEvent value) read,
+    required TResult Function(UpdateNoteBlocEvent value) update,
+    required TResult Function(DeleteNoteBlocEvent value) delete,
   }) {
-    assert(create != null);
-    assert(read != null);
-    assert(update != null);
-    assert(delete != null);
     return delete(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult create(CreateNoteBlocEvent value),
-    TResult read(ReadNoteBlocEvent value),
-    TResult update(UpdateNoteBlocEvent value),
-    TResult delete(DeleteNoteBlocEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CreateNoteBlocEvent value)? create,
+    TResult Function(ReadNoteBlocEvent value)? read,
+    TResult Function(UpdateNoteBlocEvent value)? update,
+    TResult Function(DeleteNoteBlocEvent value)? delete,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (delete != null) {
       return delete(this);
     }
@@ -539,44 +500,37 @@ abstract class DeleteNoteBlocEvent extends NoteBlocEvent {
 class _$NoteBlocStateTearOff {
   const _$NoteBlocStateTearOff();
 
-// ignore: unused_element
   InitialNoteBlocState initial() {
     return const InitialNoteBlocState();
   }
 
-// ignore: unused_element
-  LoadedNoteBlocState loaded({Note note}) {
+  LoadedNoteBlocState loaded({Note? note}) {
     return LoadedNoteBlocState(
       note: note,
     );
   }
 
-// ignore: unused_element
-  UpdatedNoteBlocState updated({Note note}) {
+  UpdatedNoteBlocState updated({Note? note}) {
     return UpdatedNoteBlocState(
       note: note,
     );
   }
 
-// ignore: unused_element
-  CreatedNoteBlocState created({Note note}) {
+  CreatedNoteBlocState created({Note? note}) {
     return CreatedNoteBlocState(
       note: note,
     );
   }
 
-// ignore: unused_element
   DeletedNoteBlocState deleted() {
     return const DeletedNoteBlocState();
   }
 
-// ignore: unused_element
   LoadingNoteBlocState loading() {
     return const LoadingNoteBlocState();
   }
 
-// ignore: unused_element
-  ErrorNoteBlocState error({String message}) {
+  ErrorNoteBlocState error({String? message}) {
     return ErrorNoteBlocState(
       message: message,
     );
@@ -584,53 +538,56 @@ class _$NoteBlocStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NoteBlocState = _$NoteBlocStateTearOff();
 
 /// @nodoc
 mixin _$NoteBlocState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(Note note),
-    @required TResult updated(Note note),
-    @required TResult created(Note note),
-    @required TResult deleted(),
-    @required TResult loading(),
-    @required TResult error(String message),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Note? note) loaded,
+    required TResult Function(Note? note) updated,
+    required TResult Function(Note? note) created,
+    required TResult Function() deleted,
+    required TResult Function() loading,
+    required TResult Function(String? message) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(Note note),
-    TResult updated(Note note),
-    TResult created(Note note),
-    TResult deleted(),
-    TResult loading(),
-    TResult error(String message),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Note? note)? loaded,
+    TResult Function(Note? note)? updated,
+    TResult Function(Note? note)? created,
+    TResult Function()? deleted,
+    TResult Function()? loading,
+    TResult Function(String? message)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialNoteBlocState value),
-    @required TResult loaded(LoadedNoteBlocState value),
-    @required TResult updated(UpdatedNoteBlocState value),
-    @required TResult created(CreatedNoteBlocState value),
-    @required TResult deleted(DeletedNoteBlocState value),
-    @required TResult loading(LoadingNoteBlocState value),
-    @required TResult error(ErrorNoteBlocState value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialNoteBlocState value) initial,
+    required TResult Function(LoadedNoteBlocState value) loaded,
+    required TResult Function(UpdatedNoteBlocState value) updated,
+    required TResult Function(CreatedNoteBlocState value) created,
+    required TResult Function(DeletedNoteBlocState value) deleted,
+    required TResult Function(LoadingNoteBlocState value) loading,
+    required TResult Function(ErrorNoteBlocState value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialNoteBlocState value),
-    TResult loaded(LoadedNoteBlocState value),
-    TResult updated(UpdatedNoteBlocState value),
-    TResult created(CreatedNoteBlocState value),
-    TResult deleted(DeletedNoteBlocState value),
-    TResult loading(LoadingNoteBlocState value),
-    TResult error(ErrorNoteBlocState value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialNoteBlocState value)? initial,
+    TResult Function(LoadedNoteBlocState value)? loaded,
+    TResult Function(UpdatedNoteBlocState value)? updated,
+    TResult Function(CreatedNoteBlocState value)? created,
+    TResult Function(DeletedNoteBlocState value)? deleted,
+    TResult Function(LoadingNoteBlocState value)? loading,
+    TResult Function(ErrorNoteBlocState value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -688,38 +645,30 @@ class _$InitialNoteBlocState extends InitialNoteBlocState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(Note note),
-    @required TResult updated(Note note),
-    @required TResult created(Note note),
-    @required TResult deleted(),
-    @required TResult loading(),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Note? note) loaded,
+    required TResult Function(Note? note) updated,
+    required TResult Function(Note? note) created,
+    required TResult Function() deleted,
+    required TResult Function() loading,
+    required TResult Function(String? message) error,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(updated != null);
-    assert(created != null);
-    assert(deleted != null);
-    assert(loading != null);
-    assert(error != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(Note note),
-    TResult updated(Note note),
-    TResult created(Note note),
-    TResult deleted(),
-    TResult loading(),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Note? note)? loaded,
+    TResult Function(Note? note)? updated,
+    TResult Function(Note? note)? created,
+    TResult Function()? deleted,
+    TResult Function()? loading,
+    TResult Function(String? message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial();
     }
@@ -728,38 +677,30 @@ class _$InitialNoteBlocState extends InitialNoteBlocState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialNoteBlocState value),
-    @required TResult loaded(LoadedNoteBlocState value),
-    @required TResult updated(UpdatedNoteBlocState value),
-    @required TResult created(CreatedNoteBlocState value),
-    @required TResult deleted(DeletedNoteBlocState value),
-    @required TResult loading(LoadingNoteBlocState value),
-    @required TResult error(ErrorNoteBlocState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialNoteBlocState value) initial,
+    required TResult Function(LoadedNoteBlocState value) loaded,
+    required TResult Function(UpdatedNoteBlocState value) updated,
+    required TResult Function(CreatedNoteBlocState value) created,
+    required TResult Function(DeletedNoteBlocState value) deleted,
+    required TResult Function(LoadingNoteBlocState value) loading,
+    required TResult Function(ErrorNoteBlocState value) error,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(updated != null);
-    assert(created != null);
-    assert(deleted != null);
-    assert(loading != null);
-    assert(error != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialNoteBlocState value),
-    TResult loaded(LoadedNoteBlocState value),
-    TResult updated(UpdatedNoteBlocState value),
-    TResult created(CreatedNoteBlocState value),
-    TResult deleted(DeletedNoteBlocState value),
-    TResult loading(LoadingNoteBlocState value),
-    TResult error(ErrorNoteBlocState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialNoteBlocState value)? initial,
+    TResult Function(LoadedNoteBlocState value)? loaded,
+    TResult Function(UpdatedNoteBlocState value)? updated,
+    TResult Function(CreatedNoteBlocState value)? created,
+    TResult Function(DeletedNoteBlocState value)? deleted,
+    TResult Function(LoadingNoteBlocState value)? loading,
+    TResult Function(ErrorNoteBlocState value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial(this);
     }
@@ -777,7 +718,7 @@ abstract class $LoadedNoteBlocStateCopyWith<$Res> {
   factory $LoadedNoteBlocStateCopyWith(
           LoadedNoteBlocState value, $Res Function(LoadedNoteBlocState) then) =
       _$LoadedNoteBlocStateCopyWithImpl<$Res>;
-  $Res call({Note note});
+  $Res call({Note? note});
 }
 
 /// @nodoc
@@ -793,10 +734,10 @@ class _$LoadedNoteBlocStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object note = freezed,
+    Object? note = freezed,
   }) {
     return _then(LoadedNoteBlocState(
-      note: note == freezed ? _value.note : note as Note,
+      note: note == freezed ? _value.note : note as Note?,
     ));
   }
 }
@@ -806,7 +747,7 @@ class _$LoadedNoteBlocState extends LoadedNoteBlocState {
   const _$LoadedNoteBlocState({this.note}) : super._();
 
   @override
-  final Note note;
+  final Note? note;
 
   @override
   String toString() {
@@ -832,38 +773,30 @@ class _$LoadedNoteBlocState extends LoadedNoteBlocState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(Note note),
-    @required TResult updated(Note note),
-    @required TResult created(Note note),
-    @required TResult deleted(),
-    @required TResult loading(),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Note? note) loaded,
+    required TResult Function(Note? note) updated,
+    required TResult Function(Note? note) created,
+    required TResult Function() deleted,
+    required TResult Function() loading,
+    required TResult Function(String? message) error,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(updated != null);
-    assert(created != null);
-    assert(deleted != null);
-    assert(loading != null);
-    assert(error != null);
     return loaded(note);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(Note note),
-    TResult updated(Note note),
-    TResult created(Note note),
-    TResult deleted(),
-    TResult loading(),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Note? note)? loaded,
+    TResult Function(Note? note)? updated,
+    TResult Function(Note? note)? created,
+    TResult Function()? deleted,
+    TResult Function()? loading,
+    TResult Function(String? message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(note);
     }
@@ -872,38 +805,30 @@ class _$LoadedNoteBlocState extends LoadedNoteBlocState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialNoteBlocState value),
-    @required TResult loaded(LoadedNoteBlocState value),
-    @required TResult updated(UpdatedNoteBlocState value),
-    @required TResult created(CreatedNoteBlocState value),
-    @required TResult deleted(DeletedNoteBlocState value),
-    @required TResult loading(LoadingNoteBlocState value),
-    @required TResult error(ErrorNoteBlocState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialNoteBlocState value) initial,
+    required TResult Function(LoadedNoteBlocState value) loaded,
+    required TResult Function(UpdatedNoteBlocState value) updated,
+    required TResult Function(CreatedNoteBlocState value) created,
+    required TResult Function(DeletedNoteBlocState value) deleted,
+    required TResult Function(LoadingNoteBlocState value) loading,
+    required TResult Function(ErrorNoteBlocState value) error,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(updated != null);
-    assert(created != null);
-    assert(deleted != null);
-    assert(loading != null);
-    assert(error != null);
     return loaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialNoteBlocState value),
-    TResult loaded(LoadedNoteBlocState value),
-    TResult updated(UpdatedNoteBlocState value),
-    TResult created(CreatedNoteBlocState value),
-    TResult deleted(DeletedNoteBlocState value),
-    TResult loading(LoadingNoteBlocState value),
-    TResult error(ErrorNoteBlocState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialNoteBlocState value)? initial,
+    TResult Function(LoadedNoteBlocState value)? loaded,
+    TResult Function(UpdatedNoteBlocState value)? updated,
+    TResult Function(CreatedNoteBlocState value)? created,
+    TResult Function(DeletedNoteBlocState value)? deleted,
+    TResult Function(LoadingNoteBlocState value)? loading,
+    TResult Function(ErrorNoteBlocState value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(this);
     }
@@ -913,11 +838,12 @@ class _$LoadedNoteBlocState extends LoadedNoteBlocState {
 
 abstract class LoadedNoteBlocState extends NoteBlocState {
   const LoadedNoteBlocState._() : super._();
-  const factory LoadedNoteBlocState({Note note}) = _$LoadedNoteBlocState;
+  const factory LoadedNoteBlocState({Note? note}) = _$LoadedNoteBlocState;
 
-  Note get note;
+  Note? get note => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LoadedNoteBlocStateCopyWith<LoadedNoteBlocState> get copyWith;
+  $LoadedNoteBlocStateCopyWith<LoadedNoteBlocState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -925,7 +851,7 @@ abstract class $UpdatedNoteBlocStateCopyWith<$Res> {
   factory $UpdatedNoteBlocStateCopyWith(UpdatedNoteBlocState value,
           $Res Function(UpdatedNoteBlocState) then) =
       _$UpdatedNoteBlocStateCopyWithImpl<$Res>;
-  $Res call({Note note});
+  $Res call({Note? note});
 }
 
 /// @nodoc
@@ -941,10 +867,10 @@ class _$UpdatedNoteBlocStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object note = freezed,
+    Object? note = freezed,
   }) {
     return _then(UpdatedNoteBlocState(
-      note: note == freezed ? _value.note : note as Note,
+      note: note == freezed ? _value.note : note as Note?,
     ));
   }
 }
@@ -954,7 +880,7 @@ class _$UpdatedNoteBlocState extends UpdatedNoteBlocState {
   const _$UpdatedNoteBlocState({this.note}) : super._();
 
   @override
-  final Note note;
+  final Note? note;
 
   @override
   String toString() {
@@ -981,38 +907,30 @@ class _$UpdatedNoteBlocState extends UpdatedNoteBlocState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(Note note),
-    @required TResult updated(Note note),
-    @required TResult created(Note note),
-    @required TResult deleted(),
-    @required TResult loading(),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Note? note) loaded,
+    required TResult Function(Note? note) updated,
+    required TResult Function(Note? note) created,
+    required TResult Function() deleted,
+    required TResult Function() loading,
+    required TResult Function(String? message) error,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(updated != null);
-    assert(created != null);
-    assert(deleted != null);
-    assert(loading != null);
-    assert(error != null);
     return updated(note);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(Note note),
-    TResult updated(Note note),
-    TResult created(Note note),
-    TResult deleted(),
-    TResult loading(),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Note? note)? loaded,
+    TResult Function(Note? note)? updated,
+    TResult Function(Note? note)? created,
+    TResult Function()? deleted,
+    TResult Function()? loading,
+    TResult Function(String? message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (updated != null) {
       return updated(note);
     }
@@ -1021,38 +939,30 @@ class _$UpdatedNoteBlocState extends UpdatedNoteBlocState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialNoteBlocState value),
-    @required TResult loaded(LoadedNoteBlocState value),
-    @required TResult updated(UpdatedNoteBlocState value),
-    @required TResult created(CreatedNoteBlocState value),
-    @required TResult deleted(DeletedNoteBlocState value),
-    @required TResult loading(LoadingNoteBlocState value),
-    @required TResult error(ErrorNoteBlocState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialNoteBlocState value) initial,
+    required TResult Function(LoadedNoteBlocState value) loaded,
+    required TResult Function(UpdatedNoteBlocState value) updated,
+    required TResult Function(CreatedNoteBlocState value) created,
+    required TResult Function(DeletedNoteBlocState value) deleted,
+    required TResult Function(LoadingNoteBlocState value) loading,
+    required TResult Function(ErrorNoteBlocState value) error,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(updated != null);
-    assert(created != null);
-    assert(deleted != null);
-    assert(loading != null);
-    assert(error != null);
     return updated(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialNoteBlocState value),
-    TResult loaded(LoadedNoteBlocState value),
-    TResult updated(UpdatedNoteBlocState value),
-    TResult created(CreatedNoteBlocState value),
-    TResult deleted(DeletedNoteBlocState value),
-    TResult loading(LoadingNoteBlocState value),
-    TResult error(ErrorNoteBlocState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialNoteBlocState value)? initial,
+    TResult Function(LoadedNoteBlocState value)? loaded,
+    TResult Function(UpdatedNoteBlocState value)? updated,
+    TResult Function(CreatedNoteBlocState value)? created,
+    TResult Function(DeletedNoteBlocState value)? deleted,
+    TResult Function(LoadingNoteBlocState value)? loading,
+    TResult Function(ErrorNoteBlocState value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (updated != null) {
       return updated(this);
     }
@@ -1062,11 +972,12 @@ class _$UpdatedNoteBlocState extends UpdatedNoteBlocState {
 
 abstract class UpdatedNoteBlocState extends NoteBlocState {
   const UpdatedNoteBlocState._() : super._();
-  const factory UpdatedNoteBlocState({Note note}) = _$UpdatedNoteBlocState;
+  const factory UpdatedNoteBlocState({Note? note}) = _$UpdatedNoteBlocState;
 
-  Note get note;
+  Note? get note => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UpdatedNoteBlocStateCopyWith<UpdatedNoteBlocState> get copyWith;
+  $UpdatedNoteBlocStateCopyWith<UpdatedNoteBlocState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1074,7 +985,7 @@ abstract class $CreatedNoteBlocStateCopyWith<$Res> {
   factory $CreatedNoteBlocStateCopyWith(CreatedNoteBlocState value,
           $Res Function(CreatedNoteBlocState) then) =
       _$CreatedNoteBlocStateCopyWithImpl<$Res>;
-  $Res call({Note note});
+  $Res call({Note? note});
 }
 
 /// @nodoc
@@ -1090,10 +1001,10 @@ class _$CreatedNoteBlocStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object note = freezed,
+    Object? note = freezed,
   }) {
     return _then(CreatedNoteBlocState(
-      note: note == freezed ? _value.note : note as Note,
+      note: note == freezed ? _value.note : note as Note?,
     ));
   }
 }
@@ -1103,7 +1014,7 @@ class _$CreatedNoteBlocState extends CreatedNoteBlocState {
   const _$CreatedNoteBlocState({this.note}) : super._();
 
   @override
-  final Note note;
+  final Note? note;
 
   @override
   String toString() {
@@ -1130,38 +1041,30 @@ class _$CreatedNoteBlocState extends CreatedNoteBlocState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(Note note),
-    @required TResult updated(Note note),
-    @required TResult created(Note note),
-    @required TResult deleted(),
-    @required TResult loading(),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Note? note) loaded,
+    required TResult Function(Note? note) updated,
+    required TResult Function(Note? note) created,
+    required TResult Function() deleted,
+    required TResult Function() loading,
+    required TResult Function(String? message) error,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(updated != null);
-    assert(created != null);
-    assert(deleted != null);
-    assert(loading != null);
-    assert(error != null);
     return created(note);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(Note note),
-    TResult updated(Note note),
-    TResult created(Note note),
-    TResult deleted(),
-    TResult loading(),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Note? note)? loaded,
+    TResult Function(Note? note)? updated,
+    TResult Function(Note? note)? created,
+    TResult Function()? deleted,
+    TResult Function()? loading,
+    TResult Function(String? message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (created != null) {
       return created(note);
     }
@@ -1170,38 +1073,30 @@ class _$CreatedNoteBlocState extends CreatedNoteBlocState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialNoteBlocState value),
-    @required TResult loaded(LoadedNoteBlocState value),
-    @required TResult updated(UpdatedNoteBlocState value),
-    @required TResult created(CreatedNoteBlocState value),
-    @required TResult deleted(DeletedNoteBlocState value),
-    @required TResult loading(LoadingNoteBlocState value),
-    @required TResult error(ErrorNoteBlocState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialNoteBlocState value) initial,
+    required TResult Function(LoadedNoteBlocState value) loaded,
+    required TResult Function(UpdatedNoteBlocState value) updated,
+    required TResult Function(CreatedNoteBlocState value) created,
+    required TResult Function(DeletedNoteBlocState value) deleted,
+    required TResult Function(LoadingNoteBlocState value) loading,
+    required TResult Function(ErrorNoteBlocState value) error,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(updated != null);
-    assert(created != null);
-    assert(deleted != null);
-    assert(loading != null);
-    assert(error != null);
     return created(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialNoteBlocState value),
-    TResult loaded(LoadedNoteBlocState value),
-    TResult updated(UpdatedNoteBlocState value),
-    TResult created(CreatedNoteBlocState value),
-    TResult deleted(DeletedNoteBlocState value),
-    TResult loading(LoadingNoteBlocState value),
-    TResult error(ErrorNoteBlocState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialNoteBlocState value)? initial,
+    TResult Function(LoadedNoteBlocState value)? loaded,
+    TResult Function(UpdatedNoteBlocState value)? updated,
+    TResult Function(CreatedNoteBlocState value)? created,
+    TResult Function(DeletedNoteBlocState value)? deleted,
+    TResult Function(LoadingNoteBlocState value)? loading,
+    TResult Function(ErrorNoteBlocState value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (created != null) {
       return created(this);
     }
@@ -1211,11 +1106,12 @@ class _$CreatedNoteBlocState extends CreatedNoteBlocState {
 
 abstract class CreatedNoteBlocState extends NoteBlocState {
   const CreatedNoteBlocState._() : super._();
-  const factory CreatedNoteBlocState({Note note}) = _$CreatedNoteBlocState;
+  const factory CreatedNoteBlocState({Note? note}) = _$CreatedNoteBlocState;
 
-  Note get note;
+  Note? get note => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CreatedNoteBlocStateCopyWith<CreatedNoteBlocState> get copyWith;
+  $CreatedNoteBlocStateCopyWith<CreatedNoteBlocState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1256,38 +1152,30 @@ class _$DeletedNoteBlocState extends DeletedNoteBlocState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(Note note),
-    @required TResult updated(Note note),
-    @required TResult created(Note note),
-    @required TResult deleted(),
-    @required TResult loading(),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Note? note) loaded,
+    required TResult Function(Note? note) updated,
+    required TResult Function(Note? note) created,
+    required TResult Function() deleted,
+    required TResult Function() loading,
+    required TResult Function(String? message) error,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(updated != null);
-    assert(created != null);
-    assert(deleted != null);
-    assert(loading != null);
-    assert(error != null);
     return deleted();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(Note note),
-    TResult updated(Note note),
-    TResult created(Note note),
-    TResult deleted(),
-    TResult loading(),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Note? note)? loaded,
+    TResult Function(Note? note)? updated,
+    TResult Function(Note? note)? created,
+    TResult Function()? deleted,
+    TResult Function()? loading,
+    TResult Function(String? message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleted != null) {
       return deleted();
     }
@@ -1296,38 +1184,30 @@ class _$DeletedNoteBlocState extends DeletedNoteBlocState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialNoteBlocState value),
-    @required TResult loaded(LoadedNoteBlocState value),
-    @required TResult updated(UpdatedNoteBlocState value),
-    @required TResult created(CreatedNoteBlocState value),
-    @required TResult deleted(DeletedNoteBlocState value),
-    @required TResult loading(LoadingNoteBlocState value),
-    @required TResult error(ErrorNoteBlocState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialNoteBlocState value) initial,
+    required TResult Function(LoadedNoteBlocState value) loaded,
+    required TResult Function(UpdatedNoteBlocState value) updated,
+    required TResult Function(CreatedNoteBlocState value) created,
+    required TResult Function(DeletedNoteBlocState value) deleted,
+    required TResult Function(LoadingNoteBlocState value) loading,
+    required TResult Function(ErrorNoteBlocState value) error,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(updated != null);
-    assert(created != null);
-    assert(deleted != null);
-    assert(loading != null);
-    assert(error != null);
     return deleted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialNoteBlocState value),
-    TResult loaded(LoadedNoteBlocState value),
-    TResult updated(UpdatedNoteBlocState value),
-    TResult created(CreatedNoteBlocState value),
-    TResult deleted(DeletedNoteBlocState value),
-    TResult loading(LoadingNoteBlocState value),
-    TResult error(ErrorNoteBlocState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialNoteBlocState value)? initial,
+    TResult Function(LoadedNoteBlocState value)? loaded,
+    TResult Function(UpdatedNoteBlocState value)? updated,
+    TResult Function(CreatedNoteBlocState value)? created,
+    TResult Function(DeletedNoteBlocState value)? deleted,
+    TResult Function(LoadingNoteBlocState value)? loading,
+    TResult Function(ErrorNoteBlocState value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleted != null) {
       return deleted(this);
     }
@@ -1378,38 +1258,30 @@ class _$LoadingNoteBlocState extends LoadingNoteBlocState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(Note note),
-    @required TResult updated(Note note),
-    @required TResult created(Note note),
-    @required TResult deleted(),
-    @required TResult loading(),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Note? note) loaded,
+    required TResult Function(Note? note) updated,
+    required TResult Function(Note? note) created,
+    required TResult Function() deleted,
+    required TResult Function() loading,
+    required TResult Function(String? message) error,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(updated != null);
-    assert(created != null);
-    assert(deleted != null);
-    assert(loading != null);
-    assert(error != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(Note note),
-    TResult updated(Note note),
-    TResult created(Note note),
-    TResult deleted(),
-    TResult loading(),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Note? note)? loaded,
+    TResult Function(Note? note)? updated,
+    TResult Function(Note? note)? created,
+    TResult Function()? deleted,
+    TResult Function()? loading,
+    TResult Function(String? message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -1418,38 +1290,30 @@ class _$LoadingNoteBlocState extends LoadingNoteBlocState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialNoteBlocState value),
-    @required TResult loaded(LoadedNoteBlocState value),
-    @required TResult updated(UpdatedNoteBlocState value),
-    @required TResult created(CreatedNoteBlocState value),
-    @required TResult deleted(DeletedNoteBlocState value),
-    @required TResult loading(LoadingNoteBlocState value),
-    @required TResult error(ErrorNoteBlocState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialNoteBlocState value) initial,
+    required TResult Function(LoadedNoteBlocState value) loaded,
+    required TResult Function(UpdatedNoteBlocState value) updated,
+    required TResult Function(CreatedNoteBlocState value) created,
+    required TResult Function(DeletedNoteBlocState value) deleted,
+    required TResult Function(LoadingNoteBlocState value) loading,
+    required TResult Function(ErrorNoteBlocState value) error,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(updated != null);
-    assert(created != null);
-    assert(deleted != null);
-    assert(loading != null);
-    assert(error != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialNoteBlocState value),
-    TResult loaded(LoadedNoteBlocState value),
-    TResult updated(UpdatedNoteBlocState value),
-    TResult created(CreatedNoteBlocState value),
-    TResult deleted(DeletedNoteBlocState value),
-    TResult loading(LoadingNoteBlocState value),
-    TResult error(ErrorNoteBlocState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialNoteBlocState value)? initial,
+    TResult Function(LoadedNoteBlocState value)? loaded,
+    TResult Function(UpdatedNoteBlocState value)? updated,
+    TResult Function(CreatedNoteBlocState value)? created,
+    TResult Function(DeletedNoteBlocState value)? deleted,
+    TResult Function(LoadingNoteBlocState value)? loading,
+    TResult Function(ErrorNoteBlocState value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -1467,7 +1331,7 @@ abstract class $ErrorNoteBlocStateCopyWith<$Res> {
   factory $ErrorNoteBlocStateCopyWith(
           ErrorNoteBlocState value, $Res Function(ErrorNoteBlocState) then) =
       _$ErrorNoteBlocStateCopyWithImpl<$Res>;
-  $Res call({String message});
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -1483,10 +1347,10 @@ class _$ErrorNoteBlocStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object message = freezed,
+    Object? message = freezed,
   }) {
     return _then(ErrorNoteBlocState(
-      message: message == freezed ? _value.message : message as String,
+      message: message == freezed ? _value.message : message as String?,
     ));
   }
 }
@@ -1496,7 +1360,7 @@ class _$ErrorNoteBlocState extends ErrorNoteBlocState {
   const _$ErrorNoteBlocState({this.message}) : super._();
 
   @override
-  final String message;
+  final String? message;
 
   @override
   String toString() {
@@ -1522,38 +1386,30 @@ class _$ErrorNoteBlocState extends ErrorNoteBlocState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(Note note),
-    @required TResult updated(Note note),
-    @required TResult created(Note note),
-    @required TResult deleted(),
-    @required TResult loading(),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Note? note) loaded,
+    required TResult Function(Note? note) updated,
+    required TResult Function(Note? note) created,
+    required TResult Function() deleted,
+    required TResult Function() loading,
+    required TResult Function(String? message) error,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(updated != null);
-    assert(created != null);
-    assert(deleted != null);
-    assert(loading != null);
-    assert(error != null);
     return error(message);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(Note note),
-    TResult updated(Note note),
-    TResult created(Note note),
-    TResult deleted(),
-    TResult loading(),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Note? note)? loaded,
+    TResult Function(Note? note)? updated,
+    TResult Function(Note? note)? created,
+    TResult Function()? deleted,
+    TResult Function()? loading,
+    TResult Function(String? message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(message);
     }
@@ -1562,38 +1418,30 @@ class _$ErrorNoteBlocState extends ErrorNoteBlocState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialNoteBlocState value),
-    @required TResult loaded(LoadedNoteBlocState value),
-    @required TResult updated(UpdatedNoteBlocState value),
-    @required TResult created(CreatedNoteBlocState value),
-    @required TResult deleted(DeletedNoteBlocState value),
-    @required TResult loading(LoadingNoteBlocState value),
-    @required TResult error(ErrorNoteBlocState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialNoteBlocState value) initial,
+    required TResult Function(LoadedNoteBlocState value) loaded,
+    required TResult Function(UpdatedNoteBlocState value) updated,
+    required TResult Function(CreatedNoteBlocState value) created,
+    required TResult Function(DeletedNoteBlocState value) deleted,
+    required TResult Function(LoadingNoteBlocState value) loading,
+    required TResult Function(ErrorNoteBlocState value) error,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(updated != null);
-    assert(created != null);
-    assert(deleted != null);
-    assert(loading != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialNoteBlocState value),
-    TResult loaded(LoadedNoteBlocState value),
-    TResult updated(UpdatedNoteBlocState value),
-    TResult created(CreatedNoteBlocState value),
-    TResult deleted(DeletedNoteBlocState value),
-    TResult loading(LoadingNoteBlocState value),
-    TResult error(ErrorNoteBlocState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialNoteBlocState value)? initial,
+    TResult Function(LoadedNoteBlocState value)? loaded,
+    TResult Function(UpdatedNoteBlocState value)? updated,
+    TResult Function(CreatedNoteBlocState value)? created,
+    TResult Function(DeletedNoteBlocState value)? deleted,
+    TResult Function(LoadingNoteBlocState value)? loading,
+    TResult Function(ErrorNoteBlocState value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -1603,9 +1451,10 @@ class _$ErrorNoteBlocState extends ErrorNoteBlocState {
 
 abstract class ErrorNoteBlocState extends NoteBlocState {
   const ErrorNoteBlocState._() : super._();
-  const factory ErrorNoteBlocState({String message}) = _$ErrorNoteBlocState;
+  const factory ErrorNoteBlocState({String? message}) = _$ErrorNoteBlocState;
 
-  String get message;
+  String? get message => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ErrorNoteBlocStateCopyWith<ErrorNoteBlocState> get copyWith;
+  $ErrorNoteBlocStateCopyWith<ErrorNoteBlocState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'notebook_bloc.dart';
 
@@ -9,40 +9,45 @@ part of 'notebook_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$NotebookEventTearOff {
   const _$NotebookEventTearOff();
 
-// ignore: unused_element
   GetListNotebookEvent getList() {
     return const GetListNotebookEvent();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NotebookEvent = _$NotebookEventTearOff();
 
 /// @nodoc
 mixin _$NotebookEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult getList(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() getList,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult getList(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getList,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult getList(GetListNotebookEvent value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetListNotebookEvent value) getList,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult getList(GetListNotebookEvent value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetListNotebookEvent value)? getList,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -100,20 +105,18 @@ class _$GetListNotebookEvent extends GetListNotebookEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult getList(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() getList,
   }) {
-    assert(getList != null);
     return getList();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult getList(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getList,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (getList != null) {
       return getList();
     }
@@ -122,20 +125,18 @@ class _$GetListNotebookEvent extends GetListNotebookEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult getList(GetListNotebookEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetListNotebookEvent value) getList,
   }) {
-    assert(getList != null);
     return getList(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult getList(GetListNotebookEvent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetListNotebookEvent value)? getList,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (getList != null) {
       return getList(this);
     }
@@ -152,54 +153,54 @@ abstract class GetListNotebookEvent extends NotebookEvent {
 class _$NotebookStateTearOff {
   const _$NotebookStateTearOff();
 
-// ignore: unused_element
   InitialNotebookState initial() {
     return const InitialNotebookState();
   }
 
-// ignore: unused_element
   LoadedNotebookState loaded() {
     return const LoadedNotebookState();
   }
 
-// ignore: unused_element
   LoadingNotebookState loading() {
     return const LoadingNotebookState();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NotebookState = _$NotebookStateTearOff();
 
 /// @nodoc
 mixin _$NotebookState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(),
-    @required TResult loading(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loaded,
+    required TResult Function() loading,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(),
-    TResult loading(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loaded,
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialNotebookState value),
-    @required TResult loaded(LoadedNotebookState value),
-    @required TResult loading(LoadingNotebookState value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialNotebookState value) initial,
+    required TResult Function(LoadedNotebookState value) loaded,
+    required TResult Function(LoadingNotebookState value) loading,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialNotebookState value),
-    TResult loaded(LoadedNotebookState value),
-    TResult loading(LoadingNotebookState value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialNotebookState value)? initial,
+    TResult Function(LoadedNotebookState value)? loaded,
+    TResult Function(LoadingNotebookState value)? loading,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -257,26 +258,22 @@ class _$InitialNotebookState extends InitialNotebookState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(),
-    @required TResult loading(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loaded,
+    required TResult Function() loading,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(loading != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(),
-    TResult loading(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loaded,
+    TResult Function()? loading,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial();
     }
@@ -285,26 +282,22 @@ class _$InitialNotebookState extends InitialNotebookState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialNotebookState value),
-    @required TResult loaded(LoadedNotebookState value),
-    @required TResult loading(LoadingNotebookState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialNotebookState value) initial,
+    required TResult Function(LoadedNotebookState value) loaded,
+    required TResult Function(LoadingNotebookState value) loading,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(loading != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialNotebookState value),
-    TResult loaded(LoadedNotebookState value),
-    TResult loading(LoadingNotebookState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialNotebookState value)? initial,
+    TResult Function(LoadedNotebookState value)? loaded,
+    TResult Function(LoadingNotebookState value)? loading,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial(this);
     }
@@ -355,26 +348,22 @@ class _$LoadedNotebookState extends LoadedNotebookState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(),
-    @required TResult loading(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loaded,
+    required TResult Function() loading,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(loading != null);
     return loaded();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(),
-    TResult loading(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loaded,
+    TResult Function()? loading,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded();
     }
@@ -383,26 +372,22 @@ class _$LoadedNotebookState extends LoadedNotebookState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialNotebookState value),
-    @required TResult loaded(LoadedNotebookState value),
-    @required TResult loading(LoadingNotebookState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialNotebookState value) initial,
+    required TResult Function(LoadedNotebookState value) loaded,
+    required TResult Function(LoadingNotebookState value) loading,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(loading != null);
     return loaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialNotebookState value),
-    TResult loaded(LoadedNotebookState value),
-    TResult loading(LoadingNotebookState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialNotebookState value)? initial,
+    TResult Function(LoadedNotebookState value)? loaded,
+    TResult Function(LoadingNotebookState value)? loading,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(this);
     }
@@ -453,26 +438,22 @@ class _$LoadingNotebookState extends LoadingNotebookState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(),
-    @required TResult loading(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loaded,
+    required TResult Function() loading,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(loading != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(),
-    TResult loading(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loaded,
+    TResult Function()? loading,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -481,26 +462,22 @@ class _$LoadingNotebookState extends LoadingNotebookState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialNotebookState value),
-    @required TResult loaded(LoadedNotebookState value),
-    @required TResult loading(LoadingNotebookState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialNotebookState value) initial,
+    required TResult Function(LoadedNotebookState value) loaded,
+    required TResult Function(LoadingNotebookState value) loading,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(loading != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialNotebookState value),
-    TResult loaded(LoadedNotebookState value),
-    TResult loading(LoadingNotebookState value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialNotebookState value)? initial,
+    TResult Function(LoadedNotebookState value)? loaded,
+    TResult Function(LoadingNotebookState value)? loading,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }

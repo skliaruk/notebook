@@ -5,7 +5,7 @@ import '../../../../core/error/failures.dart';
 import '../entities/note.dart';
 
 abstract class NoteRepo {
-  Future<Either<Failure, Note>> createNote({String title, String content});
+  Future<Either<Failure, Note>> createNote({String? title, String? content});
 
   Future<Either<Failure, Response>> deleteNote(int noteId);
 

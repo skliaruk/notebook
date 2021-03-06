@@ -1,13 +1,11 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' as dio;
+
 import '../../../../core/error/exceptions.dart';
 import '../models/note_model.dart';
-import 'package:dio/dio.dart' as dio;
-import 'package:meta/meta.dart';
 
 abstract class NoteRemoteDataSource {
-  Future<NoteModel> createNote({String title, String content});
+  Future<NoteModel> createNote({String? title, String? content});
 
   Future<Response> deleteNote(int noteId);
 
@@ -17,13 +15,16 @@ abstract class NoteRemoteDataSource {
 }
 
 class NoteRemoteDataSourceImpl implements NoteRemoteDataSource {
-  final dio.Dio client;
+  final dio.Dio? client;
 
-  NoteRemoteDataSourceImpl({@required this.client});
+  NoteRemoteDataSourceImpl({required this.client});
   @override
-  Future<NoteModel> createNote({String title, String content}) {
-    // TODO: implement createNote
-    throw UnimplementedError();
+  Future<NoteModel> createNote({String? title, String? content}) async {
+    final response = await client!.post<Map<String, dynamic>>(
+      'URL TO UPDATE',
+      data: {'title': title, 'body': content},
+    );
+    return NoteModel.fromJson(response.data!);
   }
 
   @override
@@ -34,12 +35,12 @@ class NoteRemoteDataSourceImpl implements NoteRemoteDataSource {
 
   @override
   Future<NoteModel> getNote(int noteId) async {
-    final response = await client.get<Map<String, dynamic>>(
+    final response = await client!.get<Map<String, dynamic>>(
       'http://jsonplaceholder.typicode.com/posts/$noteId',
     );
 
     if (response.statusCode == 200) {
-      return NoteModel.fromJson(response.data);
+      return NoteModel.fromJson(response.data!);
     } else {
       throw ServerException('Error');
     }
