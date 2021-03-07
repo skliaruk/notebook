@@ -7,7 +7,8 @@ import '../../domain/usecases/get_note.dart';
 
 class ShowNotePage extends StatelessWidget {
   const ShowNotePage({Key? key}) : super(key: key);
-
+  static Route route() =>
+      MaterialPageRoute<void>(builder: (_) => const ShowNotePage());
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
