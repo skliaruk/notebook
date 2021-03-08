@@ -4,6 +4,8 @@ import 'package:notebook_stable/features/auth/domain/bloc/auth_bloc.dart';
 import 'package:notebook_stable/features/auth/domain/repositories/auth_repo.dart';
 import 'package:notebook_stable/features/auth/presentation/screens/auth_page.dart';
 import 'package:notebook_stable/features/note/presentation/pages/show_note_page.dart';
+import 'package:notebook_stable/services/database.dart';
+import 'package:provider/provider.dart';
 
 class App extends StatelessWidget {
   const App({
@@ -42,7 +44,12 @@ class _AppViewState extends State<AppView> {
           listener: (context, state) {
             if (state is AuthenticatedAuthBlocState) {
               _navigator!.pushAndRemoveUntil<void>(
-                ShowNotePage.route(),
+                MaterialPageRoute(
+                    builder: (_) => Provider<Database>(
+                          create: (_) =>
+                              FirestoreDatabase(uid: state.user!.uid),
+                          child: const ShowNotePage(),
+                        )),
                 (route) => false,
               );
             } else if (state is UnauthenticatedAuthBlocState) {

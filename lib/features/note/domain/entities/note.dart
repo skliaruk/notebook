@@ -1,12 +1,11 @@
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
 
 class Note extends Equatable {
   final String? title;
-  final String? body;
+  final String? content;
 
-  Note({required this.title, required this.body});
+  const Note({required this.title, required this.content});
 
   @override
-  List<Object?> get props => [title, body];
+  List<Object?> get props => [title, content];
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notebook_stable/services/database.dart';
 import 'package:provider/provider.dart';
 
 import '../../domain/blocs/note_bloc.dart';
@@ -7,38 +8,52 @@ import '../../domain/usecases/get_note.dart';
 
 class ShowNotePage extends StatelessWidget {
   const ShowNotePage({Key? key}) : super(key: key);
+
   static Route route() =>
       MaterialPageRoute<void>(builder: (_) => const ShowNotePage());
+
+  Future<void> _createNote(BuildContext context) async {
+    final database = context.read<Database>();
+    await database.createNote(
+        <String, dynamic>{'title': 'Text', 'content': 'Test content'});
+  }
+
   @override
   Widget build(BuildContext context) => Scaffold(
-      appBar: AppBar(
-        title: const Text('Note'),
-        centerTitle: true,
-      ),
-      body: BlocProvider<NoteBlocBLoC>(
-        create: (context) => NoteBlocBLoC(getNote: context.read<GetNote>()),
-        child: Column(
-          children: [
-            BlocBuilder<NoteBlocBLoC, NoteBlocState>(builder: (context, state) {
-              if (state is LoadingNoteBlocState) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-              if (state is LoadedNoteBlocState) {
-                return Column(
-                  children: [
-                    Text(state.note!.title!),
-                    Text(state.note!.body!),
-                  ],
-                );
-              }
-              return Container();
-            }),
-            const Button()
-          ],
+        appBar: AppBar(
+          title: const Text('Note'),
+          centerTitle: true,
         ),
-      ));
+        body: BlocProvider<NoteBlocBLoC>(
+          create: (context) => NoteBlocBLoC(getNote: context.read<GetNote>()),
+          child: Column(
+            children: [
+              BlocBuilder<NoteBlocBLoC, NoteBlocState>(
+                  builder: (context, state) {
+                if (state is LoadingNoteBlocState) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                if (state is LoadedNoteBlocState) {
+                  return Column(
+                    children: [
+                      Text(state.note!.title!),
+                      Text(state.note!.content!),
+                    ],
+                  );
+                }
+                return Container();
+              }),
+              const Button()
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => _createNote(context),
+          child: const Icon(Icons.add),
+        ),
+      );
 }
 
 class Button extends StatelessWidget {
