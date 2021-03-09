@@ -1,17 +1,9 @@
-import 'package:data_connection_checker/data_connection_checker.dart';
-import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:notebook_stable/app.dart';
 import 'package:notebook_stable/features/auth/data/repositories/auth_repo_impl.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'core/network/network_info.dart';
-import 'features/note/data/datasources/note_local_datasource.dart';
-import 'features/note/data/datasources/note_remote_datasource.dart';
-import 'features/note/data/repositories/note_repo_impl.dart';
-import 'features/note/domain/usecases/get_note.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,33 +21,13 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key, this.sharedPreferences}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => MultiProvider(
-        providers: [
-          Provider<Dio>(create: (_) => Dio()),
-          Provider<SharedPreferences?>(create: (_) => sharedPreferences),
-          ProxyProvider<Dio, NoteRemoteDataSourceImpl>(
-              update: (_, dio, __) => NoteRemoteDataSourceImpl(client: dio)),
-          ProxyProvider<SharedPreferences?, NoteLocalDataSourceImpl>(
-              update: (_, sp, __) =>
-                  NoteLocalDataSourceImpl(sharedPreferences: sp)),
-          Provider<DataConnectionChecker>(
-            create: (_) => DataConnectionChecker(),
-          ),
-          ProxyProvider<DataConnectionChecker, NetworkInfoImpl>(
-              update: (_, checker, __) => NetworkInfoImpl(checker)),
-          ProxyProvider3<NetworkInfoImpl, NoteRemoteDataSourceImpl,
-                  NoteLocalDataSourceImpl, NoteRepoImpl>(
-              update: (_, network, remote, local, __) => NoteRepoImpl(
-                  localDataSource: local,
-                  networkInfo: network,
-                  remoteDataSource: remote)),
-          ProxyProvider<NoteRepoImpl, GetNote>(
-              update: (_, noteRepo, __) => GetNote(noteRepo))
-        ],
+  Widget build(BuildContext context) => Provider<SharedPreferences?>(
+        create: (_) => sharedPreferences,
         child: MaterialApp(
-            title: 'Notebook',
-            home: App(
-              authenticationRepository: Auth(),
-            )),
+          title: 'Notebook',
+          home: App(
+            authenticationRepository: Auth(),
+          ),
+        ),
       );
 }

@@ -16,8 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$NotebookEventTearOff {
   const _$NotebookEventTearOff();
 
-  GetListNotebookEvent getList() {
-    return const GetListNotebookEvent();
+  HasDataNotebookEvent hasData(List<Note> notes) {
+    return HasDataNotebookEvent(
+      notes,
+    );
   }
 }
 
@@ -26,27 +28,33 @@ const $NotebookEvent = _$NotebookEventTearOff();
 
 /// @nodoc
 mixin _$NotebookEvent {
+  List<Note> get notes => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getList,
+    required TResult Function(List<Note> notes) hasData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getList,
+    TResult Function(List<Note> notes)? hasData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetListNotebookEvent value) getList,
+    required TResult Function(HasDataNotebookEvent value) hasData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetListNotebookEvent value)? getList,
+    TResult Function(HasDataNotebookEvent value)? hasData,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $NotebookEventCopyWith<NotebookEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -55,6 +63,7 @@ abstract class $NotebookEventCopyWith<$Res> {
   factory $NotebookEventCopyWith(
           NotebookEvent value, $Res Function(NotebookEvent) then) =
       _$NotebookEventCopyWithImpl<$Res>;
+  $Res call({List<Note> notes});
 }
 
 /// @nodoc
@@ -65,60 +74,94 @@ class _$NotebookEventCopyWithImpl<$Res>
   final NotebookEvent _value;
   // ignore: unused_field
   final $Res Function(NotebookEvent) _then;
-}
-
-/// @nodoc
-abstract class $GetListNotebookEventCopyWith<$Res> {
-  factory $GetListNotebookEventCopyWith(GetListNotebookEvent value,
-          $Res Function(GetListNotebookEvent) then) =
-      _$GetListNotebookEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$GetListNotebookEventCopyWithImpl<$Res>
-    extends _$NotebookEventCopyWithImpl<$Res>
-    implements $GetListNotebookEventCopyWith<$Res> {
-  _$GetListNotebookEventCopyWithImpl(
-      GetListNotebookEvent _value, $Res Function(GetListNotebookEvent) _then)
-      : super(_value, (v) => _then(v as GetListNotebookEvent));
 
   @override
-  GetListNotebookEvent get _value => super._value as GetListNotebookEvent;
+  $Res call({
+    Object? notes = freezed,
+  }) {
+    return _then(_value.copyWith(
+      notes: notes == freezed ? _value.notes : notes as List<Note>,
+    ));
+  }
 }
 
 /// @nodoc
-class _$GetListNotebookEvent extends GetListNotebookEvent {
-  const _$GetListNotebookEvent() : super._();
+abstract class $HasDataNotebookEventCopyWith<$Res>
+    implements $NotebookEventCopyWith<$Res> {
+  factory $HasDataNotebookEventCopyWith(HasDataNotebookEvent value,
+          $Res Function(HasDataNotebookEvent) then) =
+      _$HasDataNotebookEventCopyWithImpl<$Res>;
+  @override
+  $Res call({List<Note> notes});
+}
+
+/// @nodoc
+class _$HasDataNotebookEventCopyWithImpl<$Res>
+    extends _$NotebookEventCopyWithImpl<$Res>
+    implements $HasDataNotebookEventCopyWith<$Res> {
+  _$HasDataNotebookEventCopyWithImpl(
+      HasDataNotebookEvent _value, $Res Function(HasDataNotebookEvent) _then)
+      : super(_value, (v) => _then(v as HasDataNotebookEvent));
+
+  @override
+  HasDataNotebookEvent get _value => super._value as HasDataNotebookEvent;
+
+  @override
+  $Res call({
+    Object? notes = freezed,
+  }) {
+    return _then(HasDataNotebookEvent(
+      notes == freezed ? _value.notes : notes as List<Note>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$HasDataNotebookEvent extends HasDataNotebookEvent {
+  const _$HasDataNotebookEvent(this.notes) : super._();
+
+  @override
+  final List<Note> notes;
 
   @override
   String toString() {
-    return 'NotebookEvent.getList()';
+    return 'NotebookEvent.hasData(notes: $notes)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is GetListNotebookEvent);
+    return identical(this, other) ||
+        (other is HasDataNotebookEvent &&
+            (identical(other.notes, notes) ||
+                const DeepCollectionEquality().equals(other.notes, notes)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(notes);
+
+  @JsonKey(ignore: true)
+  @override
+  $HasDataNotebookEventCopyWith<HasDataNotebookEvent> get copyWith =>
+      _$HasDataNotebookEventCopyWithImpl<HasDataNotebookEvent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getList,
+    required TResult Function(List<Note> notes) hasData,
   }) {
-    return getList();
+    return hasData(notes);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getList,
+    TResult Function(List<Note> notes)? hasData,
     required TResult orElse(),
   }) {
-    if (getList != null) {
-      return getList();
+    if (hasData != null) {
+      return hasData(notes);
     }
     return orElse();
   }
@@ -126,39 +169,44 @@ class _$GetListNotebookEvent extends GetListNotebookEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetListNotebookEvent value) getList,
+    required TResult Function(HasDataNotebookEvent value) hasData,
   }) {
-    return getList(this);
+    return hasData(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetListNotebookEvent value)? getList,
+    TResult Function(HasDataNotebookEvent value)? hasData,
     required TResult orElse(),
   }) {
-    if (getList != null) {
-      return getList(this);
+    if (hasData != null) {
+      return hasData(this);
     }
     return orElse();
   }
 }
 
-abstract class GetListNotebookEvent extends NotebookEvent {
-  const GetListNotebookEvent._() : super._();
-  const factory GetListNotebookEvent() = _$GetListNotebookEvent;
+abstract class HasDataNotebookEvent extends NotebookEvent {
+  const HasDataNotebookEvent._() : super._();
+  const factory HasDataNotebookEvent(List<Note> notes) = _$HasDataNotebookEvent;
+
+  @override
+  List<Note> get notes => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  $HasDataNotebookEventCopyWith<HasDataNotebookEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$NotebookStateTearOff {
   const _$NotebookStateTearOff();
 
-  InitialNotebookState initial() {
-    return const InitialNotebookState();
-  }
-
-  LoadedNotebookState loaded() {
-    return const LoadedNotebookState();
+  LoadedNotebookState loaded(List<Note> notes) {
+    return LoadedNotebookState(
+      notes,
+    );
   }
 
   LoadingNotebookState loading() {
@@ -173,29 +221,25 @@ const $NotebookState = _$NotebookStateTearOff();
 mixin _$NotebookState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loaded,
+    required TResult Function(List<Note> notes) loaded,
     required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loaded,
+    TResult Function(List<Note> notes)? loaded,
     TResult Function()? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitialNotebookState value) initial,
     required TResult Function(LoadedNotebookState value) loaded,
     required TResult Function(LoadingNotebookState value) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitialNotebookState value)? initial,
     TResult Function(LoadedNotebookState value)? loaded,
     TResult Function(LoadingNotebookState value)? loading,
     required TResult orElse(),
@@ -221,100 +265,11 @@ class _$NotebookStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $InitialNotebookStateCopyWith<$Res> {
-  factory $InitialNotebookStateCopyWith(InitialNotebookState value,
-          $Res Function(InitialNotebookState) then) =
-      _$InitialNotebookStateCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$InitialNotebookStateCopyWithImpl<$Res>
-    extends _$NotebookStateCopyWithImpl<$Res>
-    implements $InitialNotebookStateCopyWith<$Res> {
-  _$InitialNotebookStateCopyWithImpl(
-      InitialNotebookState _value, $Res Function(InitialNotebookState) _then)
-      : super(_value, (v) => _then(v as InitialNotebookState));
-
-  @override
-  InitialNotebookState get _value => super._value as InitialNotebookState;
-}
-
-/// @nodoc
-class _$InitialNotebookState extends InitialNotebookState {
-  const _$InitialNotebookState() : super._();
-
-  @override
-  String toString() {
-    return 'NotebookState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InitialNotebookState);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loaded,
-    required TResult Function() loading,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loaded,
-    TResult Function()? loading,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitialNotebookState value) initial,
-    required TResult Function(LoadedNotebookState value) loaded,
-    required TResult Function(LoadingNotebookState value) loading,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitialNotebookState value)? initial,
-    TResult Function(LoadedNotebookState value)? loaded,
-    TResult Function(LoadingNotebookState value)? loading,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class InitialNotebookState extends NotebookState {
-  const InitialNotebookState._() : super._();
-  const factory InitialNotebookState() = _$InitialNotebookState;
-}
-
-/// @nodoc
 abstract class $LoadedNotebookStateCopyWith<$Res> {
   factory $LoadedNotebookStateCopyWith(
           LoadedNotebookState value, $Res Function(LoadedNotebookState) then) =
       _$LoadedNotebookStateCopyWithImpl<$Res>;
+  $Res call({List<Note> notes});
 }
 
 /// @nodoc
@@ -327,45 +282,64 @@ class _$LoadedNotebookStateCopyWithImpl<$Res>
 
   @override
   LoadedNotebookState get _value => super._value as LoadedNotebookState;
+
+  @override
+  $Res call({
+    Object? notes = freezed,
+  }) {
+    return _then(LoadedNotebookState(
+      notes == freezed ? _value.notes : notes as List<Note>,
+    ));
+  }
 }
 
 /// @nodoc
 class _$LoadedNotebookState extends LoadedNotebookState {
-  const _$LoadedNotebookState() : super._();
+  const _$LoadedNotebookState(this.notes) : super._();
+
+  @override
+  final List<Note> notes;
 
   @override
   String toString() {
-    return 'NotebookState.loaded()';
+    return 'NotebookState.loaded(notes: $notes)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is LoadedNotebookState);
+    return identical(this, other) ||
+        (other is LoadedNotebookState &&
+            (identical(other.notes, notes) ||
+                const DeepCollectionEquality().equals(other.notes, notes)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(notes);
+
+  @JsonKey(ignore: true)
+  @override
+  $LoadedNotebookStateCopyWith<LoadedNotebookState> get copyWith =>
+      _$LoadedNotebookStateCopyWithImpl<LoadedNotebookState>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loaded,
+    required TResult Function(List<Note> notes) loaded,
     required TResult Function() loading,
   }) {
-    return loaded();
+    return loaded(notes);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loaded,
+    TResult Function(List<Note> notes)? loaded,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded();
+      return loaded(notes);
     }
     return orElse();
   }
@@ -373,7 +347,6 @@ class _$LoadedNotebookState extends LoadedNotebookState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitialNotebookState value) initial,
     required TResult Function(LoadedNotebookState value) loaded,
     required TResult Function(LoadingNotebookState value) loading,
   }) {
@@ -383,7 +356,6 @@ class _$LoadedNotebookState extends LoadedNotebookState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitialNotebookState value)? initial,
     TResult Function(LoadedNotebookState value)? loaded,
     TResult Function(LoadingNotebookState value)? loading,
     required TResult orElse(),
@@ -397,7 +369,12 @@ class _$LoadedNotebookState extends LoadedNotebookState {
 
 abstract class LoadedNotebookState extends NotebookState {
   const LoadedNotebookState._() : super._();
-  const factory LoadedNotebookState() = _$LoadedNotebookState;
+  const factory LoadedNotebookState(List<Note> notes) = _$LoadedNotebookState;
+
+  List<Note> get notes => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $LoadedNotebookStateCopyWith<LoadedNotebookState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -439,8 +416,7 @@ class _$LoadingNotebookState extends LoadingNotebookState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loaded,
+    required TResult Function(List<Note> notes) loaded,
     required TResult Function() loading,
   }) {
     return loading();
@@ -449,8 +425,7 @@ class _$LoadingNotebookState extends LoadingNotebookState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loaded,
+    TResult Function(List<Note> notes)? loaded,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
@@ -463,7 +438,6 @@ class _$LoadingNotebookState extends LoadingNotebookState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitialNotebookState value) initial,
     required TResult Function(LoadedNotebookState value) loaded,
     required TResult Function(LoadingNotebookState value) loading,
   }) {
@@ -473,7 +447,6 @@ class _$LoadingNotebookState extends LoadingNotebookState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitialNotebookState value)? initial,
     TResult Function(LoadedNotebookState value)? loaded,
     TResult Function(LoadingNotebookState value)? loading,
     required TResult orElse(),

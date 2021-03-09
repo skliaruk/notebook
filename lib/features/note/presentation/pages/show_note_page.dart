@@ -1,10 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notebook_stable/features/note/data/models/note_model.dart';
+import 'package:notebook_stable/features/note/domain/blocs/notebook_bloc.dart';
+import 'package:notebook_stable/features/note/domain/usecases/get_notebook.dart';
 import 'package:notebook_stable/services/database.dart';
 import 'package:provider/provider.dart';
 
 import '../../domain/blocs/note_bloc.dart';
-import '../../domain/usecases/get_note.dart';
 
 class ShowNotePage extends StatelessWidget {
   const ShowNotePage({Key? key}) : super(key: key);
@@ -13,9 +16,14 @@ class ShowNotePage extends StatelessWidget {
       MaterialPageRoute<void>(builder: (_) => const ShowNotePage());
 
   Future<void> _createNote(BuildContext context) async {
-    final database = context.read<Database>();
-    await database.createNote(
-        <String, dynamic>{'title': 'Text', 'content': 'Test content'});
+    try {
+      final database = context.read<Database>();
+      await database
+          .createNote(const NoteModel(title: 'title', content: 'content'));
+    } on FirebaseException catch (e) {
+      //TODO handle error
+      print(e);
+    }
   }
 
   @override
@@ -24,28 +32,28 @@ class ShowNotePage extends StatelessWidget {
           title: const Text('Note'),
           centerTitle: true,
         ),
-        body: BlocProvider<NoteBlocBLoC>(
-          create: (context) => NoteBlocBLoC(getNote: context.read<GetNote>()),
+        body: BlocProvider<NotebookBLoC>(
+          create: (context) =>
+              NotebookBLoC(notebookUseCase: context.read<GetNotebook>()),
           child: Column(
             children: [
-              BlocBuilder<NoteBlocBLoC, NoteBlocState>(
+              BlocBuilder<NotebookBLoC, NotebookState>(
                   builder: (context, state) {
-                if (state is LoadingNoteBlocState) {
+                if (state is LoadingNotebookState) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
                 }
-                if (state is LoadedNoteBlocState) {
+                if (state is LoadedNotebookState) {
+                  final notes = state.notes
+                      .map((note) => Text('${note.title} ${note.content}'))
+                      .toList();
                   return Column(
-                    children: [
-                      Text(state.note!.title!),
-                      Text(state.note!.content!),
-                    ],
-                  );
+                      mainAxisSize: MainAxisSize.min, children: notes);
                 }
+
                 return Container();
               }),
-              const Button()
             ],
           ),
         ),

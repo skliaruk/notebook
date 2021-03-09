@@ -12,4 +12,6 @@ abstract class NoteRepo {
   Future<Either<Failure, Note>> updateNote(String title, String content);
 
   Future<Either<Failure, Note>> getNote(int noteId);
+
+  Either<Failure, Stream<List<Note>>> getNotes();
 }

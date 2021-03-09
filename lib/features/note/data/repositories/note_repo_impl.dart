@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/src/response.dart';
+import 'package:notebook_stable/features/note/data/models/note_model.dart';
+import 'package:notebook_stable/services/api_path.dart';
 
 import '../../../../core/error/exceptions.dart';
 import '../../../../core/error/failures.dart';
@@ -13,11 +16,14 @@ class NoteRepoImpl implements NoteRepo {
   final NoteRemoteDataSource? remoteDataSource;
   final NoteLocalDataSource? localDataSource;
   final NetworkInfo? networkInfo;
+  final String uid;
 
-  NoteRepoImpl(
-      {required this.remoteDataSource,
-      required this.localDataSource,
-      required this.networkInfo});
+  NoteRepoImpl({
+    required this.remoteDataSource,
+    required this.localDataSource,
+    required this.networkInfo,
+    required this.uid,
+  });
 
   @override
   Future<Either<Failure, Note>> createNote({String? title, String? content}) {
@@ -55,5 +61,22 @@ class NoteRepoImpl implements NoteRepo {
   Future<Either<Failure, Note>> updateNote(String title, String content) {
     // TODO: implement updateNote
     throw UnimplementedError();
+  }
+
+  @override
+  Either<Failure, Stream<List<Note>>> getNotes() {
+    try {
+      final path = APIPath.notes(uid);
+      final reference = FirebaseFirestore.instance.collection(path);
+      final snapshots = reference.snapshots();
+
+      final result = snapshots.map((snapshot) => snapshot.docs.map((e) {
+            final data = e.data();
+            return NoteModel.fromJson(data!);
+          }).toList());
+      return Right(result);
+    } on FirebaseException {
+      return Left(ServerFailure());
+    }
   }
 }

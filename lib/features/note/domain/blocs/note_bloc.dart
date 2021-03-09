@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../../../core/error/failures.dart';
 import '../entities/note.dart';
 import '../usecases/get_note.dart';
@@ -10,7 +11,7 @@ const String SERVER_FAILURE_MESSAGE = 'Server Failure';
 const String CACHE_FAILURE_MESSAGE = 'Cache Failure';
 
 @freezed
-abstract class NoteBlocEvent with _$NoteBlocEvent {
+class NoteBlocEvent with _$NoteBlocEvent {
   const NoteBlocEvent._();
 
   const factory NoteBlocEvent.create() = CreateNoteBlocEvent;
@@ -23,7 +24,7 @@ abstract class NoteBlocEvent with _$NoteBlocEvent {
 }
 
 @freezed
-abstract class NoteBlocState with _$NoteBlocState {
+class NoteBlocState with _$NoteBlocState {
   const NoteBlocState._();
 
   const factory NoteBlocState.initial() = InitialNoteBlocState;
