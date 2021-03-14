@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:dio/src/response.dart';
 import 'package:notebook_stable/features/note/data/models/note_model.dart';
 import 'package:notebook_stable/services/api_path.dart';
@@ -26,9 +27,21 @@ class NoteRepoImpl implements NoteRepo {
   });
 
   @override
-  Future<Either<Failure, Note>> createNote({String? title, String? content}) {
-    // TODO: implement createNote
-    throw UnimplementedError();
+  Future<Either<Failure, void>> createNote({required Note note}) async {
+    try {
+      return Right(await _setData(
+        path: APIPath.note(uid, 'note'),
+        data: (note as NoteModel).toJson(),
+      ));
+    } on FirebaseException {
+      return Left(ServerFailure());
+    }
+  }
+
+  Future<void> _setData(
+      {required String path, required Map<String, dynamic> data}) async {
+    final reference = FirebaseFirestore.instance.doc(path);
+    await reference.set(data);
   }
 
   @override

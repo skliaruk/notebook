@@ -16,8 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$NoteBlocEventTearOff {
   const _$NoteBlocEventTearOff();
 
-  CreateNoteBlocEvent create() {
-    return const CreateNoteBlocEvent();
+  CreateNoteBlocEvent create(Note note) {
+    return CreateNoteBlocEvent(
+      note,
+    );
   }
 
   ReadNoteBlocEvent read(int noteId) {
@@ -42,7 +44,7 @@ const $NoteBlocEvent = _$NoteBlocEventTearOff();
 mixin _$NoteBlocEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() create,
+    required TResult Function(Note note) create,
     required TResult Function(int noteId) read,
     required TResult Function() update,
     required TResult Function() delete,
@@ -50,7 +52,7 @@ mixin _$NoteBlocEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? create,
+    TResult Function(Note note)? create,
     TResult Function(int noteId)? read,
     TResult Function()? update,
     TResult Function()? delete,
@@ -98,6 +100,7 @@ abstract class $CreateNoteBlocEventCopyWith<$Res> {
   factory $CreateNoteBlocEventCopyWith(
           CreateNoteBlocEvent value, $Res Function(CreateNoteBlocEvent) then) =
       _$CreateNoteBlocEventCopyWithImpl<$Res>;
+  $Res call({Note note});
 }
 
 /// @nodoc
@@ -110,47 +113,68 @@ class _$CreateNoteBlocEventCopyWithImpl<$Res>
 
   @override
   CreateNoteBlocEvent get _value => super._value as CreateNoteBlocEvent;
+
+  @override
+  $Res call({
+    Object? note = freezed,
+  }) {
+    return _then(CreateNoteBlocEvent(
+      note == freezed ? _value.note : note as Note,
+    ));
+  }
 }
 
 /// @nodoc
 class _$CreateNoteBlocEvent extends CreateNoteBlocEvent {
-  const _$CreateNoteBlocEvent() : super._();
+  const _$CreateNoteBlocEvent(this.note) : super._();
+
+  @override
+  final Note note;
 
   @override
   String toString() {
-    return 'NoteBlocEvent.create()';
+    return 'NoteBlocEvent.create(note: $note)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is CreateNoteBlocEvent);
+    return identical(this, other) ||
+        (other is CreateNoteBlocEvent &&
+            (identical(other.note, note) ||
+                const DeepCollectionEquality().equals(other.note, note)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(note);
+
+  @JsonKey(ignore: true)
+  @override
+  $CreateNoteBlocEventCopyWith<CreateNoteBlocEvent> get copyWith =>
+      _$CreateNoteBlocEventCopyWithImpl<CreateNoteBlocEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() create,
+    required TResult Function(Note note) create,
     required TResult Function(int noteId) read,
     required TResult Function() update,
     required TResult Function() delete,
   }) {
-    return create();
+    return create(note);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? create,
+    TResult Function(Note note)? create,
     TResult Function(int noteId)? read,
     TResult Function()? update,
     TResult Function()? delete,
     required TResult orElse(),
   }) {
     if (create != null) {
-      return create();
+      return create(note);
     }
     return orElse();
   }
@@ -184,7 +208,12 @@ class _$CreateNoteBlocEvent extends CreateNoteBlocEvent {
 
 abstract class CreateNoteBlocEvent extends NoteBlocEvent {
   const CreateNoteBlocEvent._() : super._();
-  const factory CreateNoteBlocEvent() = _$CreateNoteBlocEvent;
+  const factory CreateNoteBlocEvent(Note note) = _$CreateNoteBlocEvent;
+
+  Note get note => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CreateNoteBlocEventCopyWith<CreateNoteBlocEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -248,7 +277,7 @@ class _$ReadNoteBlocEvent extends ReadNoteBlocEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() create,
+    required TResult Function(Note note) create,
     required TResult Function(int noteId) read,
     required TResult Function() update,
     required TResult Function() delete,
@@ -259,7 +288,7 @@ class _$ReadNoteBlocEvent extends ReadNoteBlocEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? create,
+    TResult Function(Note note)? create,
     TResult Function(int noteId)? read,
     TResult Function()? update,
     TResult Function()? delete,
@@ -347,7 +376,7 @@ class _$UpdateNoteBlocEvent extends UpdateNoteBlocEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() create,
+    required TResult Function(Note note) create,
     required TResult Function(int noteId) read,
     required TResult Function() update,
     required TResult Function() delete,
@@ -358,7 +387,7 @@ class _$UpdateNoteBlocEvent extends UpdateNoteBlocEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? create,
+    TResult Function(Note note)? create,
     TResult Function(int noteId)? read,
     TResult Function()? update,
     TResult Function()? delete,
@@ -441,7 +470,7 @@ class _$DeleteNoteBlocEvent extends DeleteNoteBlocEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() create,
+    required TResult Function(Note note) create,
     required TResult Function(int noteId) read,
     required TResult Function() update,
     required TResult Function() delete,
@@ -452,7 +481,7 @@ class _$DeleteNoteBlocEvent extends DeleteNoteBlocEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? create,
+    TResult Function(Note note)? create,
     TResult Function(int noteId)? read,
     TResult Function()? update,
     TResult Function()? delete,
@@ -516,10 +545,8 @@ class _$NoteBlocStateTearOff {
     );
   }
 
-  CreatedNoteBlocState created({Note? note}) {
-    return CreatedNoteBlocState(
-      note: note,
-    );
+  CreatedNoteBlocState created() {
+    return const CreatedNoteBlocState();
   }
 
   DeletedNoteBlocState deleted() {
@@ -547,7 +574,7 @@ mixin _$NoteBlocState {
     required TResult Function() initial,
     required TResult Function(Note? note) loaded,
     required TResult Function(Note? note) updated,
-    required TResult Function(Note? note) created,
+    required TResult Function() created,
     required TResult Function() deleted,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -558,7 +585,7 @@ mixin _$NoteBlocState {
     TResult Function()? initial,
     TResult Function(Note? note)? loaded,
     TResult Function(Note? note)? updated,
-    TResult Function(Note? note)? created,
+    TResult Function()? created,
     TResult Function()? deleted,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -649,7 +676,7 @@ class _$InitialNoteBlocState extends InitialNoteBlocState {
     required TResult Function() initial,
     required TResult Function(Note? note) loaded,
     required TResult Function(Note? note) updated,
-    required TResult Function(Note? note) created,
+    required TResult Function() created,
     required TResult Function() deleted,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -663,7 +690,7 @@ class _$InitialNoteBlocState extends InitialNoteBlocState {
     TResult Function()? initial,
     TResult Function(Note? note)? loaded,
     TResult Function(Note? note)? updated,
-    TResult Function(Note? note)? created,
+    TResult Function()? created,
     TResult Function()? deleted,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -777,7 +804,7 @@ class _$LoadedNoteBlocState extends LoadedNoteBlocState {
     required TResult Function() initial,
     required TResult Function(Note? note) loaded,
     required TResult Function(Note? note) updated,
-    required TResult Function(Note? note) created,
+    required TResult Function() created,
     required TResult Function() deleted,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -791,7 +818,7 @@ class _$LoadedNoteBlocState extends LoadedNoteBlocState {
     TResult Function()? initial,
     TResult Function(Note? note)? loaded,
     TResult Function(Note? note)? updated,
-    TResult Function(Note? note)? created,
+    TResult Function()? created,
     TResult Function()? deleted,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -911,7 +938,7 @@ class _$UpdatedNoteBlocState extends UpdatedNoteBlocState {
     required TResult Function() initial,
     required TResult Function(Note? note) loaded,
     required TResult Function(Note? note) updated,
-    required TResult Function(Note? note) created,
+    required TResult Function() created,
     required TResult Function() deleted,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -925,7 +952,7 @@ class _$UpdatedNoteBlocState extends UpdatedNoteBlocState {
     TResult Function()? initial,
     TResult Function(Note? note)? loaded,
     TResult Function(Note? note)? updated,
-    TResult Function(Note? note)? created,
+    TResult Function()? created,
     TResult Function()? deleted,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -985,7 +1012,6 @@ abstract class $CreatedNoteBlocStateCopyWith<$Res> {
   factory $CreatedNoteBlocStateCopyWith(CreatedNoteBlocState value,
           $Res Function(CreatedNoteBlocState) then) =
       _$CreatedNoteBlocStateCopyWithImpl<$Res>;
-  $Res call({Note? note});
 }
 
 /// @nodoc
@@ -998,46 +1024,24 @@ class _$CreatedNoteBlocStateCopyWithImpl<$Res>
 
   @override
   CreatedNoteBlocState get _value => super._value as CreatedNoteBlocState;
-
-  @override
-  $Res call({
-    Object? note = freezed,
-  }) {
-    return _then(CreatedNoteBlocState(
-      note: note == freezed ? _value.note : note as Note?,
-    ));
-  }
 }
 
 /// @nodoc
 class _$CreatedNoteBlocState extends CreatedNoteBlocState {
-  const _$CreatedNoteBlocState({this.note}) : super._();
-
-  @override
-  final Note? note;
+  const _$CreatedNoteBlocState() : super._();
 
   @override
   String toString() {
-    return 'NoteBlocState.created(note: $note)';
+    return 'NoteBlocState.created()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is CreatedNoteBlocState &&
-            (identical(other.note, note) ||
-                const DeepCollectionEquality().equals(other.note, note)));
+    return identical(this, other) || (other is CreatedNoteBlocState);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(note);
-
-  @JsonKey(ignore: true)
-  @override
-  $CreatedNoteBlocStateCopyWith<CreatedNoteBlocState> get copyWith =>
-      _$CreatedNoteBlocStateCopyWithImpl<CreatedNoteBlocState>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -1045,12 +1049,12 @@ class _$CreatedNoteBlocState extends CreatedNoteBlocState {
     required TResult Function() initial,
     required TResult Function(Note? note) loaded,
     required TResult Function(Note? note) updated,
-    required TResult Function(Note? note) created,
+    required TResult Function() created,
     required TResult Function() deleted,
     required TResult Function() loading,
     required TResult Function(String? message) error,
   }) {
-    return created(note);
+    return created();
   }
 
   @override
@@ -1059,14 +1063,14 @@ class _$CreatedNoteBlocState extends CreatedNoteBlocState {
     TResult Function()? initial,
     TResult Function(Note? note)? loaded,
     TResult Function(Note? note)? updated,
-    TResult Function(Note? note)? created,
+    TResult Function()? created,
     TResult Function()? deleted,
     TResult Function()? loading,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
     if (created != null) {
-      return created(note);
+      return created();
     }
     return orElse();
   }
@@ -1106,12 +1110,7 @@ class _$CreatedNoteBlocState extends CreatedNoteBlocState {
 
 abstract class CreatedNoteBlocState extends NoteBlocState {
   const CreatedNoteBlocState._() : super._();
-  const factory CreatedNoteBlocState({Note? note}) = _$CreatedNoteBlocState;
-
-  Note? get note => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CreatedNoteBlocStateCopyWith<CreatedNoteBlocState> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory CreatedNoteBlocState() = _$CreatedNoteBlocState;
 }
 
 /// @nodoc
@@ -1156,7 +1155,7 @@ class _$DeletedNoteBlocState extends DeletedNoteBlocState {
     required TResult Function() initial,
     required TResult Function(Note? note) loaded,
     required TResult Function(Note? note) updated,
-    required TResult Function(Note? note) created,
+    required TResult Function() created,
     required TResult Function() deleted,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -1170,7 +1169,7 @@ class _$DeletedNoteBlocState extends DeletedNoteBlocState {
     TResult Function()? initial,
     TResult Function(Note? note)? loaded,
     TResult Function(Note? note)? updated,
-    TResult Function(Note? note)? created,
+    TResult Function()? created,
     TResult Function()? deleted,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -1262,7 +1261,7 @@ class _$LoadingNoteBlocState extends LoadingNoteBlocState {
     required TResult Function() initial,
     required TResult Function(Note? note) loaded,
     required TResult Function(Note? note) updated,
-    required TResult Function(Note? note) created,
+    required TResult Function() created,
     required TResult Function() deleted,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -1276,7 +1275,7 @@ class _$LoadingNoteBlocState extends LoadingNoteBlocState {
     TResult Function()? initial,
     TResult Function(Note? note)? loaded,
     TResult Function(Note? note)? updated,
-    TResult Function(Note? note)? created,
+    TResult Function()? created,
     TResult Function()? deleted,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -1390,7 +1389,7 @@ class _$ErrorNoteBlocState extends ErrorNoteBlocState {
     required TResult Function() initial,
     required TResult Function(Note? note) loaded,
     required TResult Function(Note? note) updated,
-    required TResult Function(Note? note) created,
+    required TResult Function() created,
     required TResult Function() deleted,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -1404,7 +1403,7 @@ class _$ErrorNoteBlocState extends ErrorNoteBlocState {
     TResult Function()? initial,
     TResult Function(Note? note)? loaded,
     TResult Function(Note? note)? updated,
-    TResult Function(Note? note)? created,
+    TResult Function()? created,
     TResult Function()? deleted,
     TResult Function()? loading,
     TResult Function(String? message)? error,

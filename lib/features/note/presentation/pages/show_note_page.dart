@@ -1,10 +1,8 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notebook_stable/features/note/data/models/note_model.dart';
 import 'package:notebook_stable/features/note/domain/blocs/notebook_bloc.dart';
 import 'package:notebook_stable/features/note/domain/usecases/get_notebook.dart';
-import 'package:notebook_stable/services/database.dart';
+import 'package:notebook_stable/features/note/presentation/pages/add_new_note_page.dart';
 import 'package:provider/provider.dart';
 
 import '../../domain/blocs/note_bloc.dart';
@@ -14,17 +12,6 @@ class ShowNotePage extends StatelessWidget {
 
   static Route route() =>
       MaterialPageRoute<void>(builder: (_) => const ShowNotePage());
-
-  Future<void> _createNote(BuildContext context) async {
-    try {
-      final database = context.read<Database>();
-      await database
-          .createNote(const NoteModel(title: 'title', content: 'content'));
-    } on FirebaseException catch (e) {
-      //TODO handle error
-      print(e);
-    }
-  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -58,7 +45,7 @@ class ShowNotePage extends StatelessWidget {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => _createNote(context),
+          onPressed: () => AddNotePage.route(context),
           child: const Icon(Icons.add),
         ),
       );

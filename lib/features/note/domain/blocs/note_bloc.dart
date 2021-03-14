@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:notebook_stable/features/note/domain/repositories/note_repo.dart';
 
 import '../../../../core/error/failures.dart';
 import '../entities/note.dart';
@@ -14,7 +15,7 @@ const String CACHE_FAILURE_MESSAGE = 'Cache Failure';
 class NoteBlocEvent with _$NoteBlocEvent {
   const NoteBlocEvent._();
 
-  const factory NoteBlocEvent.create() = CreateNoteBlocEvent;
+  const factory NoteBlocEvent.create(Note note) = CreateNoteBlocEvent;
 
   const factory NoteBlocEvent.read(int noteId) = ReadNoteBlocEvent;
 
@@ -33,7 +34,7 @@ class NoteBlocState with _$NoteBlocState {
 
   const factory NoteBlocState.updated({Note? note}) = UpdatedNoteBlocState;
 
-  const factory NoteBlocState.created({Note? note}) = CreatedNoteBlocState;
+  const factory NoteBlocState.created() = CreatedNoteBlocState;
 
   const factory NoteBlocState.deleted() = DeletedNoteBlocState;
 
@@ -44,10 +45,10 @@ class NoteBlocState with _$NoteBlocState {
 
 class NoteBlocBLoC extends Bloc<NoteBlocEvent, NoteBlocState> {
   final GetNote getNote;
+  final NoteRepo noteRepo;
 
-  NoteBlocBLoC({required this.getNote})
-      : assert(getNote != null),
-        super(InitialNoteBlocState());
+  NoteBlocBLoC({required this.getNote, required this.noteRepo})
+      : super(const InitialNoteBlocState());
 
   @override
   Stream<NoteBlocState> mapEventToState(NoteBlocEvent event) =>
@@ -58,12 +59,16 @@ class NoteBlocBLoC extends Bloc<NoteBlocEvent, NoteBlocState> {
         delete: _delete,
       );
 
-  Stream<NoteBlocState> _create() async* {
-    // ...
+  Stream<NoteBlocState> _create(Note note) async* {
+    final failureOrCreated = await noteRepo.createNote(note: note);
+    yield failureOrCreated.fold(
+        (failure) =>
+            NoteBlocState.error(message: _mapFailureToMessage(failure)),
+        (r) => const NoteBlocState.created());
   }
 
   Stream<NoteBlocState> _read(int noteId) async* {
-    yield NoteBlocState.loading();
+    yield const NoteBlocState.loading();
     final failureOrNote = await getNote(noteId);
 
     yield failureOrNote.fold(
