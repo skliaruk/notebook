@@ -4,7 +4,6 @@ import 'package:notebook_stable/features/note/domain/repositories/note_repo.dart
 
 import '../../../../core/error/failures.dart';
 import '../entities/note.dart';
-import '../usecases/get_note.dart';
 
 part 'note_bloc.freezed.dart';
 
@@ -44,11 +43,9 @@ class NoteBlocState with _$NoteBlocState {
 }
 
 class NoteBlocBLoC extends Bloc<NoteBlocEvent, NoteBlocState> {
-  final GetNote getNote;
   final NoteRepo noteRepo;
 
-  NoteBlocBLoC({required this.getNote, required this.noteRepo})
-      : super(const InitialNoteBlocState());
+  NoteBlocBLoC({required this.noteRepo}) : super(const InitialNoteBlocState());
 
   @override
   Stream<NoteBlocState> mapEventToState(NoteBlocEvent event) =>
@@ -69,7 +66,7 @@ class NoteBlocBLoC extends Bloc<NoteBlocEvent, NoteBlocState> {
 
   Stream<NoteBlocState> _read(int noteId) async* {
     yield const NoteBlocState.loading();
-    final failureOrNote = await getNote(noteId);
+    final failureOrNote = await noteRepo.getNote(noteId);
 
     yield failureOrNote.fold(
         (failure) =>

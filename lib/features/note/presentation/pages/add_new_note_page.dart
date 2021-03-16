@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notebook_stable/features/note/data/models/note_model.dart';
+import 'package:notebook_stable/features/note/data/repositories/note_repo_impl.dart';
 import 'package:notebook_stable/features/note/domain/blocs/note_bloc.dart';
 
 class AddNotePage extends StatelessWidget {
-  static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  late String _noteTitle;
-  late String _noteContent;
-
   static Future<void> route(BuildContext context) async {
     await Navigator.of(context).push(
       MaterialPageRoute<AddNotePage>(
@@ -17,6 +13,20 @@ class AddNotePage extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Widget build(BuildContext context) => BlocProvider(
+        create: (context) =>
+            NoteBlocBLoC(noteRepo: context.read<NoteRepoImpl>()),
+        child: AddNoteForm(),
+      );
+}
+
+class AddNoteForm extends StatelessWidget {
+  static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  late String _noteTitle;
+  late String _noteContent;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -29,11 +39,11 @@ class AddNotePage extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             if (_formKey.currentState!.validate()) {
-              context.read<NoteBlocBLoC>().add(
-                    CreateNoteBlocEvent(
-                      NoteModel(title: _noteTitle, content: _noteContent),
-                    ),
-                  );
+              BlocProvider.of<NoteBlocBLoC>(context).add(
+                CreateNoteBlocEvent(
+                  NoteModel(title: _noteTitle, content: _noteContent),
+                ),
+              );
             }
           },
           child: const Icon(Icons.add),
@@ -48,7 +58,8 @@ class AddNotePage extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               child: Form(
                 key: _formKey,
-                child: ListView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     TextFormField(
                       decoration: const InputDecoration(hintText: 'Note title'),

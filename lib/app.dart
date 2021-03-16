@@ -1,5 +1,6 @@
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notebook_stable/core/network/network_info.dart';
@@ -82,7 +83,8 @@ class _AppViewState extends State<AppView> {
                                         remoteDataSource: remote)),
                             ProxyProvider<NoteRepoImpl, GetNotebook>(
                                 update: (_, noteRepo, __) =>
-                                    GetNotebook(noteRepo))
+                                    GetNotebook(noteRepo)),
+                            Provider<User>.value(value: state.user)
                           ],
                           child: const ShowNotePage(),
                         )),
